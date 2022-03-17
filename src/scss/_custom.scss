@@ -1,0 +1,92 @@
+// Required
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+
+
+
+@include media-breakpoint-up(lg) {
+
+    // Collapse offcanvas down from lg breakpoint
+    .offcanvas-collapse {
+        display: block;
+        position: static;
+        top: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        left: auto !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        transform: none !important;
+        background-color: transparent;
+
+        .offcanvas-header,
+        .offcanvas-footer {
+            display: none;
+        }
+
+        .offcanvas-body {
+            padding: 0;
+            overflow: initial;
+        }
+    }
+}
+
+@include media-breakpoint-down(lg) {
+    .offcanvas-collapse {
+        .offcanvas-body {
+            .navbar-nav {
+                padding-top: 0;
+
+                .nav-item {
+                    border: {
+                        top: 0;
+                        bottom: $border-width solid $border-color !important;
+                    }
+                }
+
+                .nav-link {
+                    color: $navbar-light-color;
+
+                    &:hover {
+                        color: $navbar-light-hover-color;
+                    }
+
+                    &.active {
+                        color: $navbar-light-active-color;
+                    }
+
+                    &.disabled {
+                        color: $navbar-light-disabled-color;
+                    }
+                }
+
+                .show>.nav-link,
+                .active>.nav-link {
+                    color: $navbar-light-active-color;
+                }
+
+                .dropdown-menu .dropdown-item {
+                    color: $navbar-light-color;
+
+                    &:hover {
+                        color: $navbar-light-hover-color;
+                    }
+
+                    &.active {
+                        color: $navbar-light-active-color;
+                    }
+
+                    &.disabled {
+                        color: $navbar-light-disabled-color;
+                    }
+                }
+
+                .dropdown-header {
+                    color: $dropdown-header-color;
+                    border-color: $border-color;
+                }
+            }
+        }
+    }
+}

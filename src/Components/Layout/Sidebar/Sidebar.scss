@@ -1,0 +1,108 @@
+@import '../../../scss/colors';
+
+.sidebar {
+    width: 300px;
+    position: fixed;
+    float: left;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background-color: #fff;
+    padding-bottom: 15px;
+    transition: .3s;
+
+    @media (min-width: 1545px) {
+        position: sticky !important;
+    }
+
+    //special sidebar style in mobile screen
+    @media (max-width: 1024px) {
+        display: none;
+        visibility: hidden;
+        transform: translateX(-350px);
+    }
+
+    //special style in min-sidebar
+    &.show {
+        width: 80px;
+        left: 0;
+        transition: .3s;
+
+        //special sidebar style in mobile screen
+        @media (max-width: 1024px) {
+            width: 80px !important;
+            position: fixed;
+            left: -80px !important;
+        }
+
+    }
+
+    .logo {
+        height: 90px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.7rem;
+
+        a {
+            margin-top: -25px;
+
+            &:hover {
+                color: $main !important;
+            }
+        }
+
+    }
+
+    .avatar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+        position: relative;
+
+        &::before {
+            content: "";
+            background-color: $secondary;
+            width: 100%;
+            height: 2rem;
+            position: absolute;
+            top: 0;
+            z-index: -1;
+        }
+
+        .avatar__img {
+            width: 100px;
+            height: 100px;
+            border: 15px solid $secondary;
+            border-radius: 50%;
+            margin-top: -2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+
+            img {
+                cursor: pointer;
+                border: 3px solid #fff;
+                border-radius: 50%;
+                transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+            }
+
+            &::after {
+                // content: '';
+                position: absolute;
+                right: -22px;
+                top: 50%;
+                width: 20px;
+                height: 20px;
+                background-color: $secondary;
+                border-top-left-radius: 20px;
+                box-shadow: 0px -10px 0 0 $secondary;
+            }
+        }
+
+    }
+}

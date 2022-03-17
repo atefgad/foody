@@ -1,0 +1,50 @@
+@import '../../scss/colors';
+
+.swiper-wrapper {
+    width: 100%;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+}
+
+// pagination dots
+.swiper-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .3s ease;
+
+    .swiper-pagination-bullet {
+        width: 10px;
+        height: 10px;
+        margin: 0 .25rem !important;
+        background: $main-color !important;
+        opacity: 0.8;
+        transition: all .3s ease;
+
+    }
+
+    .swiper-pagination-bullet-active {
+        width: 15px;
+        height: 15px;
+        background: #fff !important;
+        border: 3px solid $main-color;
+    }
+
+}
+
+
+// Arrow Right - Left
+.swiper-button-next,
+.swiper-button-prev {
+    color: $main-color !important;
+}
+
+.swiper-button-prev,
+.swiper-rtl .swiper-button-next {
+    left: 25px;
+}
+
+.swiper-button-next,
+.swiper-rtl .swiper-button-prev {
+    right: 25px;
+}

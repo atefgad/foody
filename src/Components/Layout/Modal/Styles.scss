@@ -1,0 +1,25 @@
+.modal-content {
+
+    border-radius: 0 !important;
+
+    .modal-header {
+        border-bottom: none;
+
+
+        .btn-close {
+            margin: 0;
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            z-index: 11;
+
+            &:focus {
+                box-shadow: unset !important;
+            }
+        }
+    }
+
+    .modal-body {
+        // padding: 0;
+    }
+}

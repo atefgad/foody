@@ -1,0 +1,98 @@
+// Custom size / color radios
+
+.form-option {
+    padding-left: 0;
+
+    &.form-check-inline {
+        margin-right: ($spacer * .25);
+    }
+
+    .form-check-input {
+        border: 0;
+        background: none;
+
+        &:checked {
+            background-image: none !important;
+            background: transparent;
+            box-shadow: none;
+        }
+
+        &:disabled~.form-option-label {
+            color: $text-muted;
+            pointer-events: none;
+        }
+    }
+}
+
+.form-option-label {
+    position: relative;
+    margin-bottom: 0;
+
+    padding: {
+        top: .0625rem;
+        right: $form-option-padding-x;
+        left: $form-option-padding-x;
+    }
+
+    transition: $form-option-transition;
+    border: $form-option-border-width solid $form-option-border-color;
+    @include border-radius($form-option-border-radius);
+    color: $form-option-color;
+
+    font: {
+        size: $form-option-font-size;
+        weight: $form-option-font-weight;
+    }
+
+    text-align: center;
+    line-height: ($form-option-size-width - .25rem);
+    cursor: pointer;
+}
+
+.form-option-size {
+    .form-option-label {
+        min-width: $form-option-size-width;
+        height: $form-option-size-width;
+    }
+
+    .form-check-input:checked~.form-option-label {
+        border-color: $form-option-active-border-color;
+        background-color: $form-option-active-bg;
+        color: $form-option-active-color;
+    }
+
+    .form-option-label:hover {
+        border-color: $form-option-hover-border-color;
+        color: $form-option-hover-color;
+    }
+}
+
+.form-option-color {
+    .form-option-label {
+        min-width: $form-option-color-width;
+        height: $form-option-color-width;
+    }
+
+    .form-option-label {
+        border-color: transparent;
+    }
+
+    .form-check-input:checked~.form-option-label {
+        border-color: $form-option-border-color;
+        color: $form-option-active-color;
+    }
+}
+
+.form-option-color-indicator {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: ($form-option-color-width - .625rem);
+    height: ($form-option-color-width - .625rem);
+
+    margin: {
+        top: -(($form-option-color-width - .625rem) * .5);
+        left: -(($form-option-color-width - .625rem) * .5);
+    }
+}
