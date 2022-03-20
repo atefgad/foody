@@ -1,0 +1,35 @@
+@import '../../scss/colors';
+
+.CatListItem {
+    background-color: $secondary;
+    border: 1px solid $secondary;
+    border-radius: 50rem;
+    padding: 0.5rem 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &.active {
+        background-color: $main;
+        border: 1px solid $main;
+        color: $secondary;
+
+        &:hover {
+            color: #fff !important;
+        }
+
+        .CatListItem__icon {
+            background-color: $secondary;
+            color: $orange !important;
+        }
+    }
+
+
+    .CatListItem__icon {
+        background-color: #fff;
+
+        color: $main;
+        padding: 0.7rem;
+        border-radius: 50%;
+    }
+}

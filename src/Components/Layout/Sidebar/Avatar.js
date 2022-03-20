@@ -1,9 +1,9 @@
 import React from "react";
 import { avatar } from "../../../constants/images";
 
-function Avatar() {
+function Avatar({ className }) {
   return (
-    <div className="avatar">
+    <div className={`avatar  ${className ? className : ""}`}>
       <div className="avatar__img ">
         <img className="zoom-hover" src={avatar} alt="user" />
       </div>

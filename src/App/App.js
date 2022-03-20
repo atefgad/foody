@@ -1,5 +1,9 @@
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import React, { useEffect, useState } from "react";
+
+import { AnimatePresence } from "framer-motion";
+
+// import route components
+import { useLocation } from "react-router-dom";
 
 import {
   Header,
@@ -7,21 +11,25 @@ import {
   CartWidget,
   Loading,
   ScrollToTop,
-  Modal,
   PageHeading,
-  Animated,
+  CatsSlides,
 } from "../Components";
-
-import "./App.scss";
 import Router from "./Router";
 
-function App() {
-  const [toggle, setToggle] = useState(false);
-  // const dispatch = useDispatch();
-  // const { isLoading } = useSelector((state) => state.products);
-  // const { isLoggedIn } = useSelector((state) => state.auth);
+import "./App.scss";
+import { useDispatch, useSelector } from "react-redux";
+import { getProducts } from "../store/productsSlice";
 
-  const isLoading = false;
+function App() {
+  const { isLoading } = useSelector((state) => state);
+  const [toggle, setToggle] = useState(false);
+  const location = useLocation();
+
+  const dispach = useDispatch();
+
+  useEffect(() => {
+    dispach(getProducts());
+  }, [dispach]);
 
   // <Route path="product/:productId" element={<Product />} />
 
@@ -30,20 +38,20 @@ function App() {
       {isLoading ? (
         <Loading />
       ) : (
-        <AnimatePresence exitBeforeEnter initial={true}>
+        <AnimatePresence exitBeforeEnter initial={false}>
           <ScrollToTop>
             <div className="app__container bg-secondary">
               <Sidebar toggle={toggle} />
+              <Header setToggle={setToggle} toggle={toggle} />
               <main className={`main-area ${toggle ? "show" : ""}`}>
-                <Header setToggle={setToggle} toggle={toggle} />
                 <div className="content">
                   <PageHeading name="category" link="/shop">
-                    <h2 className="p5">PiZZa</h2>
+                    <CatsSlides />
                   </PageHeading>
+
+                  {/* page__content */}
                   <div className="page__content bg-secondary ">
-                    <Animated>
-                      <Router />
-                    </Animated>
+                    <Router location={location} />
                   </div>
                 </div>
                 <CartWidget />

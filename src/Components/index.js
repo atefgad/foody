@@ -11,6 +11,9 @@ import Login from "./Forms/Login";
 import Register from "./Forms/Register";
 
 import PageHeading from "./PageHeading/PageHeading";
+import ProductCard from "./ProductCard/ProductCard";
+import CatListItem from "./CatListItem/CatListItem";
+import CatsSlides from "./CatsSlides/CatsSlides";
 
 import NoCartItems from "./Layout/Header/NoCartItems";
 import Loading from "./util/Loading/Loading";
@@ -25,6 +28,9 @@ export {
   CartWidget,
   NoCartItems,
   PageHeading,
+  ProductCard,
+  CatListItem,
+  CatsSlides,
   //Modals
   // Modal,
   // ModalUi,

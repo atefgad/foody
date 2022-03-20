@@ -1,5 +1,5 @@
 import avatar from "../Assets/images/avatar.svg";
-import CountryBurger from "../Assets/images/products/Country-Burger.png";
+import CountryBurger from "../Assets/images/products/burger/Country-Burger.png";
 
 // Icons
 // export { default as order } from "../Assets/images/icons/order.png";

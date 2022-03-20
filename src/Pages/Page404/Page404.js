@@ -3,25 +3,16 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import error404Img from "../../Assets/images/404.svg";
-
-const animations = {
-  initial: { opacity: 0, scale: 0 },
-  animate: { opacity: 1, scale: 1 },
-};
+import { Animated } from "../../Components";
 
 function Page404() {
   return (
-    <motion.div
-      variants={animations}
-      initial="initial"
-      animate="animate"
-      transition={{ ease: "easeIn", duration: 0.5 }}
-    >
+    <Animated>
       <div
-        className="container d-flex flex-column justify-content-center pt-5 mb-6"
+        className="container d-flex flex-column justify-content-center pt-3 mb-6"
         style={{ flex: "1 0 auto" }}
       >
-        <div className="pt-7 pb-5">
+        <div className="pt-3 pb-5">
           <div className="text-center mb-2 pb-4">
             <h1 className="mb-5">
               <img
@@ -44,7 +35,7 @@ function Page404() {
           </div>
         </div>
       </div>
-    </motion.div>
+    </Animated>
   );
 }
 

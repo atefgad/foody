@@ -4,13 +4,13 @@ import { motion, useTransform, useViewportScroll } from "framer-motion";
 const transition = { duration: 1.4, ease: [0.6, 0.01, -0.05, 0.9] };
 
 const animations = {
-  initial: { opacity: 0, y: 100 },
+  initial: { opacity: 0, scale: 0 },
   animate: {
     opacity: 1,
-    y: 0,
+    scale: 1,
     transition: { duration: 1, ...transition },
   },
-  exit: { opacity: 0, y: 0 },
+  exit: { opacity: 0 },
 };
 
 function Animated({ children }) {
@@ -23,12 +23,6 @@ function Animated({ children }) {
       initial="initial"
       animate="animate"
       exit="exit"
-      layout
-      // transition={{
-      //   opacity: { ease: "linear" },
-      //   layout: { duration: 1 },
-      // }}
-      // transition={transition}
       className="animated"
     >
       {children}
