@@ -21,7 +21,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "../store/productsSlice";
 
 function App() {
-  const { products, isLoading } = useSelector((state) => state.products);
+  const { isLoading } = useSelector((state) => state.products);
   const [toggle, setToggle] = useState(false);
   const location = useLocation();
 

@@ -10,11 +10,9 @@ function Home() {
       <div className="home__page">
         <div className="container">
           <div className="row">
-            {products
-              .filter((product) => product.category === "pizza")
-              .map((productItem) => (
-                <ProductCard data={productItem} />
-              ))}
+            {products.map((productItem) => (
+              <ProductCard data={productItem} />
+            ))}
           </div>
         </div>
       </div>

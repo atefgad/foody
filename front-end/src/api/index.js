@@ -6,7 +6,7 @@ export const category = {
 };
 
 const Api = {
-  getProductsList: (type, params) => {
+  getProductsByCat: (type, params) => {
     const filtered = params.filter((product) => product.category === type);
     return filtered;
   },

@@ -14,16 +14,17 @@ import {
 } from "react-icons/io5";
 import { AiOutlineHistory } from "react-icons/ai";
 const menuListItems = [
-  { name: "home", path: "/", icon: <IoHomeOutline /> },
-  {
-    name: "menu",
-    path: "/menu",
-    icon: <IoRestaurantOutline />,
-  },
+  // { name: "home", path: "/", icon: <IoHomeOutline /> },
+
   {
     name: "order",
     path: "/order",
     icon: <IoBagCheckOutline />,
+  },
+  {
+    name: "menu",
+    path: "/",
+    icon: <IoRestaurantOutline />,
   },
   {
     name: "wallet",

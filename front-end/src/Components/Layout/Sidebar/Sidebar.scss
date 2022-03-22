@@ -11,19 +11,6 @@
     padding-bottom: 15px;
     transition: .3s;
 
-    /** bottom img **/
-    &::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 100px;
-        width: 100px;
-        height: 150px;
-        background-image: url(../../../Assets/images/str.png);
-        background-repeat: no-repeat;
-        z-index: 999999;
-    }
-
     @media (min-width: 1545px) {
         position: sticky !important;
     }

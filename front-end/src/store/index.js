@@ -13,6 +13,5 @@ const store = configureStore({
   },
 });
 
-// store.dispatch(cartTotalPrice());
-// store.dispatch(getUsers());
+store.dispatch(cartTotalPrice());
 export default store;

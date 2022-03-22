@@ -24,22 +24,22 @@ const categories = [
   },
   {
     name: "pizza",
-    path: "/pizza",
+    path: "/category/pizza",
     icon: <IoPizzaOutline className="fs-2 fw-bold" />,
   },
   {
     name: "burger",
-    path: "/burger",
+    path: "/category/burger",
     icon: <GiHamburger className="fs-2 fw-bold" />,
   },
   {
     name: "drinks",
-    path: "/drinks",
+    path: "/category/drinks",
     icon: <BiDrink className="fs-2 fw-bold" />,
   },
   {
     name: "desserts",
-    path: "/desserts",
+    path: "/category/dessert",
     icon: <FaIceCream className="fs-2 fw-bold" />,
   },
 ];
