@@ -8,9 +8,6 @@ import "swiper/css/pagination";
 
 import "./style.scss";
 
-// import required modules
-import { Pagination } from "swiper";
-
 import { CatListItem } from "..";
 
 import { IoPizzaOutline, IoFastFoodSharp } from "react-icons/io5";
@@ -50,35 +47,34 @@ const categories = [
 const CatsSlides = () => {
   return (
     <Swiper
-      effect="Flip"
       slidesPerView={5}
-      spaceBetween={30}
+      spaceBetween={20}
       // navigation={navigation ? navigation : false}
       className="mySwiper"
       breakpoints={{
         300: {
-          slidesPerView: 1,
-          spaceBetween: 0,
+          slidesPerView: 2,
+          spaceBetween: 15,
         },
         580: {
           slidesPerView: 2,
-          spaceBetween: 25,
+          spaceBetween: 20,
         },
         640: {
-          slidesPerView: 2,
-          spaceBetween: 25,
+          slidesPerView: 3,
+          spaceBetween: 20,
         },
         768: {
-          slidesPerView: 2,
+          slidesPerView: 3,
           spaceBetween: 20,
         },
         1024: {
           slidesPerView: 3,
-          spaceBetween: 25,
+          spaceBetween: 15,
         },
         1200: {
-          slidesPerView: 4,
-          spaceBetween: 30,
+          slidesPerView: 5,
+          spaceBetween: 25,
         },
       }}
     >

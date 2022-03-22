@@ -1,0 +1,216 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "title": "Apricot Chicken",
+      "description": "Crispy bacon, tasty ham, pineapple, onion and stretchy mozzarella, finished",
+      "image": "/pizza/apricot-chicken.png",
+      "category": "pizza",
+      "price": 18.30,
+      "newPrice": null
+    },
+    {
+      "id": 2,
+      "title": "Chicken Hawaii",
+      "description": "Extra-virgin olive oil, mozzarella cheese, thinly-sliced steak meat, garlic, green",
+      "image": "/pizza/chicken-hawaii.png",
+      "category": "pizza",
+      "price": 14.49,
+      "newPrice": null
+    },
+    {
+      "id": 3,
+      "title": "Grand Italiano",
+      "description": "Although the legendary Double Burger really needs no introduction, please",
+      "image": "/pizza/grand-italiano.png",
+      "category": "pizza",
+      "price": 11.42,
+      "newPrice": 7.05
+    },
+    {
+      "id": 4,
+      "title": "Supreme Pizza",
+      "description": "Ricotta, sun dried tomatoes, garlic, mozzarella cheese, topped with lightly",
+      "image": "/pizza/supreme-pizza.png",
+      "category": "pizza",
+      "price": 11.75,
+      "newPrice": 6.02
+    },
+    {
+      "id": 5,
+      "title": "Summer Pizza",
+      "description": "Shrimp, Red Capsicum, Green Capsicum, Onion, Chilli flakes, Lemon",
+      "image": "/pizza/summer-pizza.png",
+      "category": "pizza",
+      "price": 12.15,
+      "newPrice": 9.23
+    },
+    {
+      "id": 6,
+      "title": "Primo Meat",
+      "description": "Mouth watering pepperoni, cabanossi, mushroom, capsicum, black olives",
+      "image": "/pizza/primo-meat.png",
+      "category": "pizza",
+      "price": 15.83,
+      "newPrice": null
+    },
+   
+    {
+      "id": 7,
+      "title": "Country Burger",
+      "description": "A mighty meaty double helping of all the reasons you love our burger.",
+      "image": "/burger/Country-Burger.png",
+      "category": "burger",
+      "price": 15.30,
+      "newPrice": null
+    },
+    {
+      "id": 8,
+      "title": "Double Beef Burger",
+      "description": "A mighty meaty double helping of all the reasons you love our burger.",
+      "image": "/burger/Double-Beef-Burger.png",
+      "category": "burger",
+      "price": 13.20,
+      "newPrice": null
+    },
+    {
+      "id": 9,
+      "title": "Double Cheese",
+      "description": "A mighty meaty double helping of all the reasons you love our burger.",
+      "image": "/burger/Double-Cheese.png",
+      "category": "burger",
+      "price": 12.10,
+      "newPrice": 9.00
+    },
+    {
+      "id": 10,
+      "title": "Pene Salmone",
+      "description": "A mighty meaty double helping of all the reasons you love our burger.",
+      "image": "/burger/Pene-Salmone.png",
+      "category": "burger",
+      "price": 13.15,
+      "newPrice": 10.00
+    },
+    {
+      "id": 11,
+      "title": "Original Burger",
+      "description": "A mighty meaty double helping of all the reasons you love our burger.",
+      "image": "/burger/Original-Burger.png",
+      "category": "burger",
+      "price": 13.90,
+      "newPrice": null
+    },
+
+    {
+      "id": 12,
+      "title": "Blueberry Shake",
+      "description": "Iced coffee is a type of coffee beverage served chilled, brewed variously",
+      "image": "/drinks/blueberry-shake.png",
+      "category": "drinks",
+      "price": 11.60,
+      "newPrice": null
+    },
+    {
+      "id": 13,
+      "title": "Fresh Lime",
+      "description": "Iced coffee is a type of coffee beverage served chilled, brewed variously",
+      "image": "/drinks/fresh-lime.png",
+      "category": "drinks",
+      "price": 16.02,
+      "newPrice": null
+    },
+    {
+      "id": 14,
+      "title": "Ice Lime Cola",
+      "description": "Iced coffee is a type of coffee beverage served chilled, brewed variously",
+      "image": "/drinks/ice-lime-cola.png",
+      "category": "drinks",
+      "price": 16.80,
+      "newPrice": 11.00
+    },
+    {
+      "id": 15,
+      "title": "Iced Tea",
+      "description": "Browse unique Coca-Cola products, clothing, & accessories, or customize",
+      "image": "/drinks/ice-tea.png",
+      "category": "drinks",
+      "price": 12.64,
+      "newPrice": 8.00
+    },
+    {
+      "id": 16,
+      "title": "Lemonades Drink",
+      "description": "Browse unique Coca-Cola products, clothing, & accessories, or customize",
+      "image": "/drinks/lemonades.png",
+      "category": "drinks",
+      "price": 18.26,
+      "newPrice": null
+    },
+
+    {
+      "id": 17,
+      "title": "Black Coffee",
+      "description": "Browse unique Coca-Cola products, clothing, & accessories, or customize",
+      "image": "/drinks/black-coffee.png",
+      "category": "drinks",
+      "price": 11.76,
+      "newPrice": null
+    },
+    {
+      "id": 18,
+      "title": "Pizzaro Coffee",
+      "description": "Browse unique Coca-Cola products, clothing, & accessories, or customize",
+      "image": "/drinks/pizzaro-coffee.png",
+      "category": "drinks",
+      "price": 11.50,
+      "newPrice": null
+    },
+    {
+      "id": 19,
+      "title": "Hot Cappuccino",
+      "description": "coffee is a type of coffee beverage served chilled, brewed variously with",
+      "image": "/drinks/hot-cappuccino.png",
+      "category": "drinks",
+      "price": 19.90,
+      "newPrice": 15.50
+    },
+
+
+    {
+      "id": 20,
+      "title": "Chocolate cake",
+      "description": "coffee is a type of coffee beverage served chilled, brewed variously with",
+      "image": "/dessert/Chocolate-cake.png",
+      "category": "dessert",
+      "price": 17.30,
+      "newPrice": 11.50
+    },
+    {
+      "id": 21,
+      "title": "Chocolate Muffin",
+      "description": "coffee is a type of coffee beverage served chilled, brewed variously with",
+      "image": "/dessert/Chocolate-Muffin.png",
+      "category": "dessert",
+      "price": 17.20,
+      "newPrice": null
+    },
+    {
+      "id": 22,
+      "title": "Red Chocolate Cake",
+      "description": "Chocolate Cake is a type of coffee beverage served chilled, brewed variously with",
+      "image": "/dessert/Red-Chocolate-Cake.png",
+      "category": "dessert",
+      "price": 17.14,
+      "newPrice": null
+    },
+    {
+      "id": 23,
+      "title": "Red Velvet Cake",
+      "description": "Cake is a type of coffee beverage served chilled, brewed variously with",
+      "image": "/dessert/Red-Velvet-Cake.png",
+      "category": "dessert",
+      "price": 18.14,
+      "newPrice": null
+    }
+  ]
+}
