@@ -4,6 +4,7 @@ import "./CartWidget.scss";
 import CartWidgetItem from "./CartWidgetItem";
 import { useSelector } from "react-redux";
 import NoCartItems from "../../NoCartItems";
+import { motion, AnimatePresence } from "framer-motion";
 
 const getTodayDate = () => {
   var theDate = new Date();
@@ -59,10 +60,29 @@ function CartWidget() {
           {/* Widget Body */}
           <div className="container">
             <div className="cartWidget__body">
-              {/* Widget Item*/}
-              {cartItems.map((item) => (
-                <CartWidgetItem item={item} />
-              ))}
+              <AnimatePresence>
+                {cartItems.map((item, i) => (
+                  <motion.div
+                    key={item.id}
+                    initial={{
+                      opacity: 0,
+                      translateX: 50,
+                      translateY: 50,
+                    }}
+                    animate={{ opacity: 1, translateX: 0, translateY: 0 }}
+                    exit={{
+                      translateX: -300,
+                      opacity: 0,
+                      duration: 0.4,
+                      delay: 0.3,
+                    }}
+                    transition={{ duration: 0.3, delay: i * 0.3 }}
+                  >
+                    {/* Widget Item*/}
+                    <CartWidgetItem item={item} />
+                  </motion.div>
+                ))}
+              </AnimatePresence>
             </div>
 
             {/* Widget Cart Price */}

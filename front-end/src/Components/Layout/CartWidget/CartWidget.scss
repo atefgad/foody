@@ -13,6 +13,7 @@
     .cartWidget__body {
         overflow-x: hidden;
         overflow-y: scroll;
+        min-height: 200px;
         max-height: 300px;
         scroll-behavior: smooth;
         transition: .3s;

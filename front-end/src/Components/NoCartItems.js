@@ -8,8 +8,8 @@ function NoCartItems() {
       <div className="mt-md-5 mb-4 mt-sm-3">
         <img src={Empty} alt="Empty" width="140" />
       </div>
-      <h5 className="text-dark">Your shopping cart looks empty!</h5>
-      <span className="text-muted">What are you waiting for?</span>
+      <h5 className="text-dark">there are no orders yet!</h5>
+      <span className="text-muted">Start Adding orders!</span>
       <Link to="/" className="btn btn-primary btn-lg rounded-pill mt-4">
         Add Now!
       </Link>

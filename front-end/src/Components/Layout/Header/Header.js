@@ -9,12 +9,16 @@ import {
   IoNotificationsOutline,
   IoBarcodeOutline,
   IoAddSharp,
+  IoFastFoodOutline,
 } from "react-icons/io5";
+import { MdOutlineFastfood, MdOutlineFoodBank } from "react-icons/md";
 
 // import MenuList from "../../MenuList/MenuList";
 import SearchBox from "./SearchBox";
+import { useSelector } from "react-redux";
 
 export default function Header({ toggle, setToggle }) {
+  const { cartItems } = useSelector((state) => state.cart);
   return (
     <Navbar bg="light" expand="lg" className="border-bottom">
       {/* container */}
@@ -52,8 +56,24 @@ export default function Header({ toggle, setToggle }) {
         </div>
 
         <div className="d-flex align-items-center flex-column d-none d-lg-block">
-          <h6 className=" m-0">Order #258</h6>
+          {/*  
+        <h6 className=" m-0">Order #258</h6>
           <span className="text-gray-500 fs-xs">Opened 7:45 am</span>
+  */}
+
+          <button
+            type="button"
+            className="d-flex align-items-center btn btn-primtary rounded-1 w-100 position-relative"
+          >
+            <span
+              className="p-2 position-absolute translate-middle  badge rounded-pill bg-second"
+              style={{ left: "12px", top: "9px" }}
+            >
+              {cartItems.length}
+            </span>
+            <IoFastFoodOutline className="fs-1" />
+            <span className=" fs-6 ms-1">Order</span>
+          </button>
         </div>
         {/* Right Box-icon:END */}
       </div>
