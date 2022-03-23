@@ -10,7 +10,7 @@ import {
 } from "../../../store/cartSlice";
 
 function CartWidgetItem({ item }) {
-  const { cartItems } = useSelector((state) => state.cart);
+  const { cart } = useSelector((state) => state);
 
   const [quantity, setQuantity] = useState(item.quantity);
 
@@ -18,12 +18,14 @@ function CartWidgetItem({ item }) {
 
   useEffect(() => {
     dispatch(cartTotalPrice());
-  }, [dispatch, cartItems, quantity]);
+  }, [dispatch, cart, quantity]);
 
   const handleIncrease = (cartItem) => {
+    setQuantity(quantity + 1);
     dispatch(increaseCart(cartItem));
   };
   const handleDecrease = (cartItem) => {
+    setQuantity(quantity - 1);
     dispatch(decreaseCart(cartItem));
   };
   const handleRemoveItem = (cartItem) => {
@@ -53,6 +55,7 @@ function CartWidgetItem({ item }) {
         <div className="widget__item__qty bg-white p-1 rounded d-flex align-items-center justify-content-between">
           <button
             className="btn btn-second rounded-circle p-0"
+            disabled={quantity === 1}
             onClick={() => handleDecrease(item)}
           >
             <IoRemove className=" fs-5 fw-bold" />

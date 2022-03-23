@@ -15,7 +15,7 @@ import ProductCard from "./ProductCard/ProductCard";
 import CatListItem from "./CatListItem/CatListItem";
 import CatsSlides from "./CatsSlides/CatsSlides";
 
-import NoCartItems from "./Layout/Header/NoCartItems";
+import NoCartItems from "./NoCartItems";
 import Loading from "./util/Loading/Loading";
 import Animated from "./util/Animated/Animated";
 

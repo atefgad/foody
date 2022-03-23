@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+
+import "./ProductCard.scss";
+
 import { Page404 } from "../../Pages";
 
 import { addToCart } from "../../store/cartSlice";
@@ -9,30 +12,42 @@ function ProductCard({ data }) {
   const dispatch = useDispatch();
   // const { products } = useSelector((state) => state.products);
 
-  const [size, setSize] = useState("m");
-  const [qty, setQty] = useState(1);
+  const [size, setSize] = useState("");
 
-  const handleChange = (e) => {
-    setSize(e.target.value);
-  };
+  // Update Price By Size
+  let updatedPrice = undefined;
+  switch (size) {
+    case "m":
+      updatedPrice = (newPrice !== null ? newPrice : price) + 3;
+      break;
+    case "l":
+      updatedPrice = (newPrice !== null ? newPrice : price) + 5;
+      break;
 
+    default:
+      updatedPrice = newPrice !== null ? newPrice : price;
+      break;
+  }
   // handleAddToCart
   const handleAddToCart = (productData) => {
-    const addData = {
-      ...productData,
-      // quantity: qty,
-      size,
-      price: newPrice !== null ? newPrice : price,
-    };
-    dispatch(addToCart(addData));
-    // setTimeout(() => {}, 3000);
+    if (size !== "") {
+      const addData = {
+        ...productData,
+        size,
+        price: updatedPrice.toFixed(2),
+      };
+      dispatch(addToCart(addData));
+      // setTimeout(() => {}, 3000);
+    } else {
+      alert("Please choose size");
+    }
   };
 
   // check if isnt exist product show Error Page404
   if (!data) return <Page404 />;
   return (
     <div className="col-md-4">
-      <div className="card card-shadow p-3 mb-4 text-center border-0">
+      <div className="product__card card card-shadow p-3 mb-4 text-center border-0">
         <div className="product__img">
           <img
             src={`https://api.atef-gad.com/products${image}`}
@@ -45,8 +60,8 @@ function ProductCard({ data }) {
           <h5 className="h6">{title}</h5>
           {newPrice !== null ? (
             <React.Fragment>
-              <del className="fs-6 me-2">${newPrice}</del>
-              <span className="fs-6 fw-bold">${price}</span>
+              <del className="fs-6 me-2">${price}</del>
+              <span className="fs-6 fw-bold">${newPrice}</span>
             </React.Fragment>
           ) : (
             <span className="fs-6 fw-bold">${price}</span>
@@ -54,22 +69,18 @@ function ProductCard({ data }) {
         </div>
         {/* Size[radio box] */}
         <div className="mt-3 d-flex align-items-center justify-content-between">
-          <div
-            class="btn-group btn-group-sm"
-            role="group"
-            aria-label="Basic radio toggle button group"
-          >
+          <div className="product__size">
             <input
               type="radio"
-              class="btn-check"
-              name="btnradio"
+              className="btn-size-check"
+              name="size"
               id={`s-${id}`}
               value="s"
               checked={size === "s"}
-              onChange={handleChange}
+              onChange={(e) => setSize(e.target.value)}
             />
             <label
-              class="btn btn-secondary text-muted py-2 px-3"
+              className="btn btn-secondary text-muted py-2 px-3"
               htmlFor={`s-${id}`}
             >
               S
@@ -77,15 +88,15 @@ function ProductCard({ data }) {
 
             <input
               type="radio"
-              class="btn-check"
-              name="btnradio"
+              className="btn-size-check"
+              name="size"
               id={`m-${id}`}
               value="m"
               checked={size === "m"}
-              onChange={handleChange}
+              onChange={(e) => setSize(e.target.value)}
             />
             <label
-              class="btn btn-secondary text-muted py-2 px-3 border-start"
+              className="btn btn-secondary text-muted py-2 px-3"
               htmlFor={`m-${id}`}
             >
               M
@@ -93,15 +104,15 @@ function ProductCard({ data }) {
 
             <input
               type="radio"
-              class="btn-check"
-              name="btnradio"
+              className="btn-size-check"
+              name="size"
               id={`l-${id}`}
               value="l"
               checked={size === "l"}
-              onChange={handleChange}
+              onChange={(e) => setSize(e.target.value)}
             />
             <label
-              class="btn btn-secondary text-muted py-2 px-3 border-start"
+              className="btn btn-secondary text-muted py-2 px-3"
               htmlFor={`l-${id}`}
             >
               L

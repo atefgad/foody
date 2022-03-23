@@ -1,0 +1,21 @@
+@import '../../scss/colors';
+
+.product__card {
+    .product__size {
+        position: relative;
+        display: inline-flex;
+        vertical-align: middle;
+
+        .btn-size-check {
+            // position: absolute;
+            pointer-events: none;
+            visibility: hidden;
+            display: none;
+
+            &:checked~.btn {
+                background-color: $main;
+                color: #fff !important;
+            }
+        }
+    }
+}

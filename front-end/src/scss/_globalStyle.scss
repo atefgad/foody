@@ -111,11 +111,7 @@ button:focus {
     box-shadow: unset !important;
 }
 
-.btn-group>.btn-check:checked+lable {
-    background-color: $main;
-    color: #fff !important;
-    box-shadow: unset !important;
-}
+
 
 .dropdown-toggle {
     &::after {
