@@ -17,17 +17,36 @@ export const getProducts = createAsyncThunk(
     }
   }
 );
-
+const initialState = {
+  products: [],
+  search: [],
+  searchErrMsg: null,
+  error: null,
+  isLoading: false,
+};
 // products [actions - reducers]
 const productSlice = createSlice({
   name: "products",
-  initialState: {
-    products: [],
-    errors: null,
-    isLoading: false,
+  initialState,
+  reducers: {
+    search: (state, action) => {
+      const searchTerm = action.payload;
+
+      if (searchTerm !== "") {
+        const result = state.products.filter((item) =>
+          item.title.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+        if (result.length > 0) {
+          state.search = result;
+        } else {
+          state.searchErrMsg = "No results found";
+        }
+        console.log(result);
+      }
+    },
   },
   extraReducers: {
-    [getProducts.pending]: (state, action) => {
+    [getProducts.pending]: (state) => {
       state.isLoading = true;
       state.error = null;
     },
@@ -37,7 +56,7 @@ const productSlice = createSlice({
     },
     [getProducts.rejected]: (state, action) => {
       state.isLoading = false;
-      state.error = null;
+      state.error = action.payload;
     },
 
     // getProduct
@@ -48,3 +67,4 @@ const productSlice = createSlice({
 });
 
 export default productSlice.reducer;
+export const { search } = productSlice.actions;

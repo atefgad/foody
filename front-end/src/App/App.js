@@ -16,6 +16,9 @@ import {
 } from "../Components";
 import Router from "./Router";
 
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import "./App.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "../store/productsSlice";
@@ -23,6 +26,7 @@ import { getProducts } from "../store/productsSlice";
 function App() {
   const { isLoading } = useSelector((state) => state.products);
   const [toggle, setToggle] = useState(false);
+  const [showCart, setShowCart] = useState(false);
   const location = useLocation();
 
   const dispach = useDispatch();
@@ -40,12 +44,28 @@ function App() {
       ) : (
         <AnimatePresence exitBeforeEnter initial={false}>
           <ScrollToTop>
+            <ToastContainer
+              position="top-left"
+              autoClose={5000}
+              hideProgressBar={true}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+            />
             <div className="app__container bg-secondary">
-              <Sidebar toggle={toggle} />
-              <Header setToggle={setToggle} toggle={toggle} />
+              <Sidebar toggle={toggle} closeSidebar={setToggle} />
+              <Header
+                toggle={toggle}
+                setToggle={setToggle}
+                setShowCart={setShowCart}
+                showCart={showCart}
+              />
               <main className={`main-area ${toggle ? "show" : ""}`}>
                 <div className="content">
-                  <PageHeading name="category" link="/shop">
+                  <PageHeading name="category">
                     <CatsSlides />
                   </PageHeading>
 
@@ -54,7 +74,7 @@ function App() {
                     <Router location={location} />
                   </div>
                 </div>
-                <CartWidget />
+                <CartWidget showCart={showCart} />
               </main>
 
               {/* Main Modal

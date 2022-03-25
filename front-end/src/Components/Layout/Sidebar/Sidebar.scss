@@ -22,12 +22,36 @@
         transform: translateX(-350px);
     }
 
+    // XX-Large devices (larger desktops, 1400px and up)
+    @media (max-width: 1600px) {
+        display: block;
+        visibility: visible;
+        transform: translateX(-300px);
+
+    }
+
     //special style in min-sidebar
     &.show {
         display: block;
         visibility: visible;
         transform: translateX(0px);
+        position: fixed;
+        z-index: 1120;
 
+    }
+
+    .exit__btn {
+        position: absolute;
+        right: -30px;
+        top: 10px;
+        transition: .3s;
+        display: none;
+
+        // XX-Large devices (larger desktops, 1400px and up)
+        @media (max-width: 1600px) {
+            display: block;
+            right: 10px;
+        }
     }
 
     .logo {

@@ -11,18 +11,16 @@ import {
   IoAddSharp,
   IoFastFoodOutline,
 } from "react-icons/io5";
-import { MdOutlineFastfood, MdOutlineFoodBank } from "react-icons/md";
-
 // import MenuList from "../../MenuList/MenuList";
 import SearchBox from "./SearchBox";
 import { useSelector } from "react-redux";
 
-export default function Header({ toggle, setToggle }) {
+export default function Header({ toggle, setToggle, showCart, setShowCart }) {
   const { cartItems } = useSelector((state) => state.cart);
   return (
     <Navbar bg="light" expand="lg" className="border-bottom">
       {/* container */}
-      <div className="container-fluid justify-content-end">
+      <div className="container-fluid justify-content-lg-end">
         <Button
           className="navbar-toggler btn__toggle border-0 text-black"
           onClick={() => setToggle(!toggle)}
@@ -35,12 +33,12 @@ export default function Header({ toggle, setToggle }) {
 
         {/* Right Box-icon */}
         <div className="d-flex align-items-center">
-          <div className="navbar-tool  mx-2">
+          <div className="navbar-tool  mx-2  d-none d-lg-block">
             <button className="btn btn-second rounded-1">
               <IoBarcodeOutline className="fw-bold fs-4" />
             </button>
           </div>
-          <div className="navbar-tool  me-2">
+          <div className="navbar-tool  me-2  d-none d-lg-block">
             <button className="btn btn-second rounded-1">
               <IoNotificationsOutline className="fw-bold fs-4" />
             </button>
@@ -55,7 +53,7 @@ export default function Header({ toggle, setToggle }) {
           <div className="border-start ms-3 ps-2" style={{ height: 30 }}></div>
         </div>
 
-        <div className="d-flex align-items-center flex-column d-none d-lg-block">
+        <div className="">
           {/*  
         <h6 className=" m-0">Order #258</h6>
           <span className="text-gray-500 fs-xs">Opened 7:45 am</span>
@@ -63,7 +61,8 @@ export default function Header({ toggle, setToggle }) {
 
           <button
             type="button"
-            className="d-flex align-items-center btn btn-primtary rounded-1 w-100 position-relative"
+            className="d-flex align-items-center btn btn-primtary rounded-1  position-relative"
+            onClick={() => setShowCart(!showCart)}
           >
             <span
               className="p-2 position-absolute translate-middle  badge rounded-pill bg-second"

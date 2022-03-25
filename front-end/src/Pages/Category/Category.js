@@ -7,16 +7,17 @@ import { motion } from "framer-motion";
 import { Animated, ProductCard } from "../../Components";
 
 function Category() {
-  const { products } = useSelector((state) => state.products);
+  const { products, search } = useSelector((state) => state.products);
   const { category } = useParams();
 
+  const data = search.length > 0 ? search : products;
   return (
     <Animated>
       <div className="container">
         <div className="row">
-          {Api.getProductsByCat(category, products).map((productItem, i) => (
+          {Api.getProductsByCat(category, data).map((productItem, i) => (
             <motion.div
-              className="col-md-4"
+              className="col-lg-4 col-md-6 col-sm-12"
               key={productItem.id}
               initial={{
                 opacity: 0,

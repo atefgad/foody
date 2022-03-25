@@ -4,16 +4,19 @@ import { motion } from "framer-motion";
 import { Animated, ProductCard } from "../../Components";
 
 function Home() {
-  const { products } = useSelector((state) => state.products);
+  const { products, search, searchErrMsg } = useSelector(
+    (state) => state.products
+  );
 
+  const data = search.length > 0 ? search : products;
   return (
     <Animated>
       <div className="home__page">
         <div className="container">
           <div className="row">
-            {products.map((productItem, i) => (
+            {data.map((productItem, i) => (
               <motion.div
-                className="col-md-4"
+                className="col-lg-4 col-md-6 col-sm-12"
                 key={productItem.id}
                 initial={{
                   opacity: 0,

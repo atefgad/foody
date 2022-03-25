@@ -33,9 +33,15 @@
         }
     }
 
+    .navbar-expand-lg .navbar-toggler {}
+
     .btn__toggle {
+
         // color: $main-color !important;
         // box-shadow: 2px 3px 2px rgba(0, 0, 0, 0.3);
+        @media (max-width: 1600px) {
+            display: block !important;
+        }
 
         &:hover,
         &:active,

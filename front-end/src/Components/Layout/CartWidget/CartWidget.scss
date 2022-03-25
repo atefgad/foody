@@ -10,6 +10,28 @@
     height: 100%;
     margin-top: 2rem;
 
+    // Large devices (desktops, 992px and up)
+    @media (max-width: 992px) {
+        visibility: hidden;
+        transition: .3s;
+
+        transform: translateX(300px);
+
+        &.show {
+            visibility: visible;
+            position: fixed;
+            top: 55px;
+            height: 100%;
+            right: 10px !important;
+            z-index: 999;
+            transform: translateX(0);
+            border-left: 1px solid rgba(0, 0, 0, 0.2);
+            box-shadow: -1px 1px 7px rgba(0, 0, 0, 0.3)
+        }
+    }
+
+
+
     .cartWidget__body {
         overflow-x: hidden;
         overflow-y: scroll;

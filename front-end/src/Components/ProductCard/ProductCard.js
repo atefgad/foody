@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 
+import { toast } from "react-toastify";
+
 import "./ProductCard.scss";
 
 import { Page404 } from "../../Pages";
@@ -13,6 +15,7 @@ function ProductCard({ data }) {
   // const { products } = useSelector((state) => state.products);
 
   const [size, setSize] = useState("");
+  const [isError, setIsError] = useState(false);
 
   // Update Price By Size
   let updatedPrice = undefined;
@@ -38,11 +41,16 @@ function ProductCard({ data }) {
       };
       dispatch(addToCart(addData));
       setSize("");
+      setIsError(false);
       // setTimeout(() => {}, 3000);
+      toast.success("Successfully Added!");
     } else {
-      alert("Please choose size");
+      setIsError(true);
+      toast.error("Select a Size");
     }
   };
+
+  const notify = () => toast("Here is your toast.");
 
   // check if isnt exist product show Error Page404
   if (!data) return <Page404 />;
@@ -68,7 +76,12 @@ function ProductCard({ data }) {
         )}
       </div>
       {/* Size[radio box] */}
-      <div className="mt-3 d-flex align-items-center justify-content-between">
+      {isError && isError ? (
+        <div className="text-danger mt-1 ps-1 text-start">Select a size</div>
+      ) : (
+        ""
+      )}
+      <div className="mt-1 d-flex align-items-center justify-content-between">
         <div className="product__size">
           <input
             type="radio"
@@ -80,7 +93,9 @@ function ProductCard({ data }) {
             onChange={(e) => setSize(e.target.value)}
           />
           <label
-            className="btn btn-secondary text-muted py-2 px-3"
+            className={`btn btn-secondary text-muted py-2 px-3 ${
+              isError ? " border-primary" : ""
+            }`}
             htmlFor={`s-${id}`}
           >
             S
@@ -96,7 +111,9 @@ function ProductCard({ data }) {
             onChange={(e) => setSize(e.target.value)}
           />
           <label
-            className="btn btn-secondary text-muted py-2 px-3"
+            className={`btn btn-secondary text-muted py-2 px-3 ${
+              isError ? " border-primary" : ""
+            }`}
             htmlFor={`m-${id}`}
           >
             M
@@ -112,7 +129,9 @@ function ProductCard({ data }) {
             onChange={(e) => setSize(e.target.value)}
           />
           <label
-            className="btn btn-secondary text-muted py-2 px-3"
+            className={`btn btn-secondary text-muted py-2 px-3 ${
+              isError ? " border-primary" : ""
+            }`}
             htmlFor={`l-${id}`}
           >
             L

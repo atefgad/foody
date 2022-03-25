@@ -39,7 +39,7 @@ const getTodayDate = () => {
   return `${dayOfWeek}, ${dayOfMonth} ${curMonth} ${curYear}`;
 };
 
-function CartWidget() {
+function CartWidget({ showCart }) {
   const { cartItems, cartTotalAmount } = useSelector((state) => state.cart);
 
   const taxPrice = (totalPrice, percentage) => {
@@ -49,7 +49,9 @@ function CartWidget() {
     return totalPrice * (percentage / 100) + totalPrice;
   };
   return (
-    <div className="cartWidget h-100 rounded-3 me-lg-3 d-none d-lg-block">
+    <div
+      className={`cartWidget h-100 rounded-3 me-lg-3 ${showCart ? "show" : ""}`}
+    >
       {cartItems.length > 0 ? (
         <React.Fragment>
           {/* Widget Header */}

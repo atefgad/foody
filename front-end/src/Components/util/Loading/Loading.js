@@ -4,7 +4,7 @@ import "./Loading.scss";
 function Loading() {
   return (
     <div className="loading__container">
-      <div class="loading">
+      <div className="loading">
         <div></div>
         <div></div>
         <div></div>

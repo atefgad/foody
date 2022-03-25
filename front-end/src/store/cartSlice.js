@@ -24,8 +24,13 @@ const cartSlice = createSlice({
       );
 
       if (check) {
+        const id = action.payload.id + "-" + action.payload.size;
+        const sizeCheck = state.cartItems.find(
+          (item) => item.id === id && item.size === action.payload.size
+        );
         // state.cartItems[itemIndex].quantity += 1;
-        if (action.payload.size !== state.cartItems[itemIndex].size) {
+        // (action.payload.size !== state.cartItems[itemIndex].size)
+        if (!sizeCheck) {
           const productData = {
             ...action.payload,
             id: action.payload.id + "-" + action.payload.size,
