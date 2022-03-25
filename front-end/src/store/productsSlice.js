@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { toast } from "react-toastify";
 
 // import API_URL from "../data/products.json";
 const API_URL = "http://localhost:3005/products";
@@ -20,7 +21,6 @@ export const getProducts = createAsyncThunk(
 const initialState = {
   products: [],
   search: [],
-  searchErrMsg: null,
   error: null,
   isLoading: false,
 };
@@ -39,9 +39,9 @@ const productSlice = createSlice({
         if (result.length > 0) {
           state.search = result;
         } else {
-          state.searchErrMsg = "No results found";
+          toast.warn("No results found!");
+          state.search = [];
         }
-        console.log(result);
       }
     },
   },

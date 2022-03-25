@@ -4,9 +4,7 @@ import { motion } from "framer-motion";
 import { Animated, ProductCard } from "../../Components";
 
 function Home() {
-  const { products, search, searchErrMsg } = useSelector(
-    (state) => state.products
-  );
+  const { products, search } = useSelector((state) => state.products);
 
   const data = search.length > 0 ? search : products;
   return (
