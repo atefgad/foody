@@ -24,7 +24,7 @@ function Sidebar({ toggle, closeSidebar }) {
       {/* User Avatar */}
       <Avatar />
       {/* Main Menu List */}
-      <MainMenuList className="mt-5" />
+      <MainMenuList className="mt-lg-5 mt-md-4 mt-sm-3" />
     </aside>
   );
 }

@@ -4,15 +4,19 @@ import { motion } from "framer-motion";
 import { Animated, ProductCard } from "../../Components";
 
 function Home() {
-  const { products, search } = useSelector((state) => state.products);
+  const { products } = useSelector((state) => state.products);
 
-  const data = search.length > 0 ? search : products;
+  const result = products.filter(
+    (item) => item.title.toLowerCase().indexOf("pizza".toLowerCase()) !== -1
+  );
+
+  console.log(result);
   return (
     <Animated>
       <div className="home__page">
         <div className="container">
           <div className="row">
-            {data.map((productItem, i) => (
+            {products.map((productItem, i) => (
               <motion.div
                 className="col-lg-4 col-md-6 col-sm-12"
                 key={productItem.id}

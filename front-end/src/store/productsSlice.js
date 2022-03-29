@@ -2,7 +2,9 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
 
 // import API_URL from "../data/products.json";
-const API_URL = "http://localhost:3005/products";
+// const API_URL = "http://localhost:3005/products";
+const API_URL =
+  "https://my-json-server.typicode.com/atefgad/json-server/products";
 
 export const getProducts = createAsyncThunk(
   "products/getProducts",
@@ -33,15 +35,7 @@ const productSlice = createSlice({
       const searchTerm = action.payload;
 
       if (searchTerm !== "") {
-        const result = state.products.filter((item) =>
-          item.title.toLowerCase().includes(searchTerm.toLowerCase())
-        );
-        if (result.length > 0) {
-          state.search = result;
-        } else {
-          toast.warn("No results found!");
-          state.search = [];
-        }
+        state.search = searchTerm;
       }
     },
   },

@@ -1,160 +1,162 @@
-@import '../../../scss/colors';
+@import "../../../scss/colors";
 
 .sidebar {
-    width: 300px;
+  width: 300px;
+  position: fixed;
+  float: left;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  background-color: #fff;
+  padding-bottom: 15px;
+  transition: 0.3s;
+
+  @media (min-width: 1545px) {
+    position: sticky !important;
+  }
+
+  //special sidebar style in mobile screen
+  @media (max-width: 1024px) {
+    display: none;
+    visibility: hidden;
+    transform: translateX(-350px);
+  }
+
+  // XX-Large devices (larger desktops, 1400px and up)
+  @media (max-width: 1600px) {
+    display: block;
+    visibility: visible;
+    transform: translateX(-300px);
+  }
+
+  //special style in min-sidebar
+  &.show {
+    display: block;
+    visibility: visible;
+    transform: translateX(0px);
     position: fixed;
-    float: left;
-    left: 0;
-    top: 0;
-    height: 100vh;
-    background-color: #fff;
-    padding-bottom: 15px;
-    transition: .3s;
+    z-index: 1120;
+  }
 
-    @media (min-width: 1545px) {
-        position: sticky !important;
-    }
-
-    //special sidebar style in mobile screen
-    @media (max-width: 1024px) {
-        display: none;
-        visibility: hidden;
-        transform: translateX(-350px);
-    }
+  .exit__btn {
+    position: absolute;
+    right: -30px;
+    top: 10px;
+    transition: 0.3s;
+    display: none;
 
     // XX-Large devices (larger desktops, 1400px and up)
     @media (max-width: 1600px) {
-        display: block;
-        visibility: visible;
-        transform: translateX(-300px);
+      display: block;
+      right: 10px;
+    }
+  }
 
+  .logo {
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.7rem;
+
+    a {
+      margin-top: -25px;
+
+      &:hover {
+        color: $main !important;
+      }
+    }
+  }
+
+  .avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    position: relative;
+
+    &::before {
+      content: "";
+      background-color: $secondary;
+      width: 100%;
+      height: 2rem;
+      position: absolute;
+      top: 0;
+      z-index: -1;
     }
 
-    //special style in min-sidebar
-    &.show {
-        display: block;
-        visibility: visible;
-        transform: translateX(0px);
-        position: fixed;
-        z-index: 1120;
+    .avatar__img {
+      width: 100px;
+      height: 100px;
+      border: 15px solid $secondary;
+      border-radius: 50%;
+      margin-top: -2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
 
-    }
+      img {
+        cursor: pointer;
+        border: 3px solid #fff;
+        border-radius: 50%;
+        transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+      }
 
-    .exit__btn {
+      &::after {
+        // content: '';
         position: absolute;
-        right: -30px;
-        top: 10px;
-        transition: .3s;
-        display: none;
+        right: -22px;
+        top: 50%;
+        width: 20px;
+        height: 20px;
+        background-color: $secondary;
+        border-top-left-radius: 20px;
+        box-shadow: 0px -10px 0 0 $secondary;
+      }
+    }
+  }
 
-        // XX-Large devices (larger desktops, 1400px and up)
-        @media (max-width: 1600px) {
-            display: block;
-            right: 10px;
-        }
+  .main__menu {
+    width: 80%;
+    padding-right: 0.9375rem;
+    padding-left: 0.9375rem;
+    margin-right: auto;
+    margin-left: auto;
+
+    .active {
+      .link__item {
+        background-color: $main;
+        color: #fff;
+      }
     }
 
-    .logo {
-        height: 90px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.7rem;
+    .link__item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      width: 90px;
+      height: 90px;
+      border-radius: 1rem;
+      background-color: $secondary;
+      margin-bottom: 30px;
 
-        a {
-            margin-top: -25px;
+      //special sidebar style in mobile screen
+      @media (max-width: 1024px) {
+        height: 75px;
+        margin-bottom: 15px;
+      }
 
-            &:hover {
-                color: $main !important;
-            }
-        }
+      .link__icon {
+        font-size: 1.5rem;
+      }
 
+      .link__lable {
+        font-size: 0.8rem;
+      }
     }
-
-    .avatar {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        width: 100%;
-        height: auto;
-        position: relative;
-
-        &::before {
-            content: "";
-            background-color: $secondary;
-            width: 100%;
-            height: 2rem;
-            position: absolute;
-            top: 0;
-            z-index: -1;
-        }
-
-        .avatar__img {
-            width: 100px;
-            height: 100px;
-            border: 15px solid $secondary;
-            border-radius: 50%;
-            margin-top: -2rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-
-            img {
-                cursor: pointer;
-                border: 3px solid #fff;
-                border-radius: 50%;
-                transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
-            }
-
-            &::after {
-                // content: '';
-                position: absolute;
-                right: -22px;
-                top: 50%;
-                width: 20px;
-                height: 20px;
-                background-color: $secondary;
-                border-top-left-radius: 20px;
-                box-shadow: 0px -10px 0 0 $secondary;
-            }
-        }
-
-    }
-
-    .main__menu {
-        width: 80%;
-        padding-right: 0.9375rem;
-        padding-left: 0.9375rem;
-        margin-right: auto;
-        margin-left: auto;
-
-        .active {
-            .link__item {
-                background-color: $main;
-                color: #fff;
-            }
-        }
-
-        .link__item {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            width: 90px;
-            height: 90px;
-            border-radius: 1rem;
-            background-color: $secondary;
-            margin-bottom: 30px;
-
-            .link__icon {
-                font-size: 1.5rem
-            }
-
-            .link__lable {
-                font-size: .8rem
-            }
-        }
-    }
+  }
 }

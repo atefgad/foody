@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { Button, Navbar } from "react-bootstrap";
 import "./Header.scss";
 
@@ -10,6 +9,7 @@ import {
   IoBarcodeOutline,
   IoAddSharp,
   IoFastFoodOutline,
+  IoClose,
 } from "react-icons/io5";
 // import MenuList from "../../MenuList/MenuList";
 import SearchBox from "./SearchBox";
@@ -71,7 +71,9 @@ export default function Header({ toggle, setToggle, showCart, setShowCart }) {
               {cartItems.length}
             </span>
             <IoFastFoodOutline className="fs-1" />
-            <span className=" fs-6 ms-1">Order</span>
+            <span className=" fs-6 ms-1">
+              {showCart ? <IoClose className="fs-1" /> : "Order"}
+            </span>
           </button>
         </div>
         {/* Right Box-icon:END */}

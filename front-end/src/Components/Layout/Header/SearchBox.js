@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { toast } from "react-toastify";
 import { IoSearchOutline } from "react-icons/io5";
 import { search } from "../../../store/productsSlice";
 
@@ -10,7 +9,6 @@ function SearchBox({ className }) {
 
   const handleSearch = (e) => {
     setTerm(e.target.value);
-    console.log(e.target.value);
     if (term !== "") {
       dispatch(search(term));
     }
@@ -23,9 +21,9 @@ function SearchBox({ className }) {
           type="text"
           placeholder="What are you looking for?"
           value={term}
-          onChange={(e) => handleSearch(e)}
+          onChange={(e) => setTerm(e.target.value)}
         />
-        <button className="btn btn-second" onClick={handleSearch}>
+        <button className="btn btn-second">
           <IoSearchOutline className="fw-bold fs-4" />
         </button>
       </div>

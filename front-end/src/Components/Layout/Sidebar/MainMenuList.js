@@ -61,7 +61,7 @@ function MainMenuList({ className }) {
         <AnimatePresence>
           {menuListItems.map((link, i) => (
             <motion.div
-              className="col-md-6"
+              className="col-6"
               key={`key#${link.name}`}
               initial={{
                 opacity: 0,
