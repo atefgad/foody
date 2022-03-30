@@ -1,21 +1,22 @@
-@import '../../scss/colors';
+@import "../../scss/colors";
 
 .product__card {
-    .product__size {
-        position: relative;
-        display: inline-flex;
-        vertical-align: middle;
+  .product__size {
+    position: relative;
+    display: inline-flex;
+    vertical-align: middle;
+    margin-right: 0.3rem;
 
-        .btn-size-check {
-            // position: absolute;
-            pointer-events: none;
-            visibility: hidden;
-            display: none;
+    .btn-size-check {
+      // position: absolute;
+      pointer-events: none;
+      visibility: hidden;
+      display: none;
 
-            &:checked~.btn {
-                background-color: $main;
-                color: #fff !important;
-            }
-        }
+      &:checked ~ .btn {
+        background-color: $main;
+        color: #fff !important;
+      }
     }
+  }
 }

@@ -10,6 +10,7 @@ const Api = {
     const filtered = params.filter((product) => product.category === type);
     return filtered;
   },
+  imagesURL: () => "https://api.atef-gad.com/products",
 };
 
 export default Api;

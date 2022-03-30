@@ -8,13 +8,15 @@ import "./ProductCard.scss";
 import { Page404 } from "../../Pages";
 
 import { addToCart } from "../../store/cartSlice";
+import Api from "../../api";
+import SizeCheckInput from "./SizeCheckInput";
 
 function ProductCard({ data }) {
   const { id, title, image, price, newPrice } = data;
   const dispatch = useDispatch();
   // const { products } = useSelector((state) => state.products);
 
-  const [size, setSize] = useState("");
+  const [size, setSize] = useState("s");
   const [isError, setIsError] = useState(false);
 
   // Update Price By Size
@@ -50,15 +52,13 @@ function ProductCard({ data }) {
     }
   };
 
-  const notify = () => toast("Here is your toast.");
-
   // check if isnt exist product show Error Page404
   if (!data) return <Page404 />;
   return (
     <div className="product__card card card-shadow p-3 mb-4 text-center border-0">
       <div className="product__img">
         <img
-          src={`https://api.atef-gad.com/products${image}`}
+          src={Api.imagesURL() + image}
           alt={title}
           width="100"
           height="100"
@@ -66,10 +66,19 @@ function ProductCard({ data }) {
       </div>
       <div className="text-center">
         <h5 className="h6">{title}</h5>
+        {/*
         {newPrice !== null ? (
           <React.Fragment>
             <del className="fs-6 me-2">${price}</del>
             <span className="fs-6 fw-bold">${newPrice}</span>
+          </React.Fragment>
+        ) : (
+          <span className="fs-6 fw-bold">${price}</span>
+        )}
+        */}
+        {updatedPrice !== undefined ? (
+          <React.Fragment>
+            <span className="fs-6 fw-bold">${updatedPrice.toFixed(2)}</span>
           </React.Fragment>
         ) : (
           <span className="fs-6 fw-bold">${price}</span>
@@ -81,61 +90,18 @@ function ProductCard({ data }) {
       ) : (
         ""
       )}
-      <div className="mt-1 d-flex align-items-center justify-content-between">
-        <div className="product__size">
-          <input
-            type="radio"
-            className="btn-size-check"
-            name="size"
-            id={`s-${id}`}
-            value="s"
-            checked={size === "s"}
-            onChange={(e) => setSize(e.target.value)}
-          />
-          <label
-            className={`btn btn-secondary text-muted py-2 px-3 ${
-              isError ? " border-primary" : ""
-            }`}
-            htmlFor={`s-${id}`}
-          >
-            S
-          </label>
-
-          <input
-            type="radio"
-            className="btn-size-check"
-            name="size"
-            id={`m-${id}`}
-            value="m"
-            checked={size === "m"}
-            onChange={(e) => setSize(e.target.value)}
-          />
-          <label
-            className={`btn btn-secondary text-muted py-2 px-3 ${
-              isError ? " border-primary" : ""
-            }`}
-            htmlFor={`m-${id}`}
-          >
-            M
-          </label>
-
-          <input
-            type="radio"
-            className="btn-size-check"
-            name="size"
-            id={`l-${id}`}
-            value="l"
-            checked={size === "l"}
-            onChange={(e) => setSize(e.target.value)}
-          />
-          <label
-            className={`btn btn-secondary text-muted py-2 px-3 ${
-              isError ? " border-primary" : ""
-            }`}
-            htmlFor={`l-${id}`}
-          >
-            L
-          </label>
+      <div className="mt-2 d-flex align-items-center justify-content-between">
+        <div className="d-flex align-items-center justify-content-between">
+          {["s", "m", "l"].map((sizeItem, index) => (
+            <SizeCheckInput
+              key={`${id}"-"${index}`}
+              id={id}
+              sizeItem={sizeItem}
+              size={size}
+              setSize={setSize}
+              isError={isError}
+            />
+          ))}
         </div>
         <button
           className="btn btn-outline-primary px-5 py-2"
