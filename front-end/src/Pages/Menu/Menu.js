@@ -10,7 +10,6 @@ function Home() {
     (item) => item.title.toLowerCase().indexOf("pizza".toLowerCase()) !== -1
   );
 
-  console.log(result);
   return (
     <Animated>
       <div className="home__page">

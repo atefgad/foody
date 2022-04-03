@@ -15,6 +15,7 @@ import ProductCard from "./ProductCard/ProductCard";
 import CatListItem from "./CatListItem/CatListItem";
 import CatsSlides from "./CatsSlides/CatsSlides";
 
+import Bannar from "./Bannar/Bannar";
 import NoCartItems from "./NoCartItems";
 import Loading from "./util/Loading/Loading";
 import Animated from "./util/Animated/Animated";
@@ -26,6 +27,7 @@ export {
   Header,
   Sidebar,
   CartWidget,
+  Bannar,
   NoCartItems,
   PageHeading,
   ProductCard,

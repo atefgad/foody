@@ -1,171 +1,164 @@
-@import '../scss/colors';
+@import "../scss/colors";
 
 #App {
-    @media (min-width: 1755px) {
-
-        /** top img **/
-        &::before {
-            content: "";
-            position: absolute;
-            top: 30px;
-            left: 20%;
-            width: 115px;
-            height: 100px;
-            background-image: url(../Assets/images/pizza1.png);
-            background-repeat: no-repeat;
-            z-index: 9999;
-        }
-
-        /** bottom img **/
-        &::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 100px;
-            width: 100px;
-            height: 150px;
-            background-image: url(../Assets/images/str.png);
-            background-repeat: no-repeat;
-            z-index: 999999;
-        }
+  @media (min-width: 1755px) {
+    /** top img **/
+    &::before {
+      content: "";
+      position: absolute;
+      top: 30px;
+      left: 20%;
+      width: 115px;
+      height: 100px;
+      background-image: url(../Assets/images/pizza1.png);
+      background-repeat: no-repeat;
+      z-index: 9999;
     }
 
+    /** bottom img **/
+    // &::after {
+    //     content: "";
+    //     position: absolute;
+    //     bottom: 0;
+    //     left: 100px;
+    //     width: 100px;
+    //     height: 150px;
+    //     background-image: url(../Assets/images/str.png);
+    //     background-repeat: no-repeat;
+    //     z-index: 999999;
+    // }
+  }
 }
 
 // Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) {}
+@media (min-width: 576px) {
+}
 
 // Medium devices (tablets, 768px and up)
-@media (min-width: 768px) {}
+@media (min-width: 768px) {
+}
 
 // Large devices (desktops, 992px and up)
-@media (min-width: 992px) {}
+@media (min-width: 992px) {
+}
 
 // X-Large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) {}
+@media (min-width: 1200px) {
+}
 
 // XX-Large devices (larger desktops, 1400px and up)
-@media (min-width: 1400px) {}
+@media (min-width: 1400px) {
+}
 
 .app__container {
+  width: 100%;
+  overflow: hidden !important;
 
+  // XX-Large devices (larger desktops, 1700px and up)
+  @media (min-width: 1750px) {
+    width: 1750px;
+    margin: auto;
+    height: 90vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+  }
+
+  // XX-Large devices (larger desktops, 1600px and up)
+  @media (max-width: 1600px) {
     width: 100%;
-    overflow: hidden !important;
+    height: 100vh;
+  }
 
-    // XX-Large devices (larger desktops, 1700px and up)
-    @media (min-width: 1750px) {
-        width: 1750px;
-        margin: auto;
-        height: 85vh;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
-        border-radius: 10px;
-
-    }
+  .main-area {
+    width: calc(100% - 300px);
+    min-height: 100%;
+    transition: 0.3s;
+    will-change: width;
+    display: flex;
+    justify-content: space-between;
 
     // XX-Large devices (larger desktops, 1600px and up)
     @media (max-width: 1600px) {
+      width: 100%;
+    }
+
+    &.show {
+      width: 100%;
+    }
+  }
+
+  .content {
+    padding-top: 2rem;
+    float: left;
+    width: calc(100% - 360px);
+
+    // XX-Large devices (larger desktops, 1600px and up)
+    @media (max-width: 1600px) {
+      display: block !important;
+    }
+
+    // Large devices (desktops, 992px and up)
+    @media (max-width: 992px) {
+      width: 100%;
+    }
+
+    .page__content {
+      border-top-left-radius: 1.5rem;
+      padding-top: 30px;
+      margin-top: -30px;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      height: calc(100vh - 355px);
+      z-index: 2;
+      overflow-x: hidden;
+      overflow-y: scroll;
+
+      // XX-Large devices (larger desktops, 1600px and up)
+      @media (max-width: 1600px) {
         width: 100%;
         height: 100vh;
+      }
+
+      /* Page Scrollbar  */
+      &::-webkit-scrollbar {
+        width: 5px;
+        position: fixed;
+        //background-color: rgb(173, 152, 175);
+        transition: 0.3s;
+        visibility: hidden;
+        opacity: 0;
+      }
+
+      &:hover {
+        &::-webkit-scrollbar {
+          visibility: visible;
+          opacity: 1;
+        }
+      }
+
+      &::-webkit-scrollbar-track {
+        //box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        display: none;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: $main;
+        border-radius: 20px;
+        visibility: hidden;
+        opacity: 0;
+        transition: 0.3s;
+      }
+
+      &:hover {
+        &::-webkit-scrollbar-thumb {
+          visibility: visible;
+          opacity: 1;
+        }
+      }
     }
-
-    .main-area {
-        width: calc(100% - 300px);
-        min-height: 100%;
-        transition: .3s;
-        will-change: width;
-        display: flex;
-        justify-content: space-between;
-
-        // XX-Large devices (larger desktops, 1600px and up)
-        @media (max-width: 1600px) {
-            width: 100%;
-        }
-
-        &.show {
-
-            width: 100%;
-
-        }
-    }
-
-    .content {
-        padding-top: 2rem;
-        float: left;
-        width: calc(100% - 360px);
-
-        // XX-Large devices (larger desktops, 1600px and up)
-        @media (max-width: 1600px) {
-            display: block !important;
-        }
-
-        // Large devices (desktops, 992px and up)
-        @media (max-width: 992px) {
-            width: 100%;
-        }
-
-        .page__content {
-            border-top-left-radius: 1.5rem;
-            padding-top: 30px;
-            margin-top: -30px;
-            padding-left: 1rem;
-            padding-right: 1rem;
-            height: calc(100vh - 400px);
-            z-index: 2;
-            overflow-x: hidden;
-            overflow-y: scroll;
-
-            // XX-Large devices (larger desktops, 1600px and up)
-            @media (max-width: 1600px) {
-                width: 100%;
-                height: 100vh;
-            }
-
-            /* Page Scrollbar  */
-            &::-webkit-scrollbar {
-                width: 5px;
-                position: fixed;
-                //background-color: rgb(173, 152, 175);
-                transition: .3s;
-                visibility: hidden;
-                opacity: 0;
-
-            }
-
-            &:hover {
-                &::-webkit-scrollbar {
-                    visibility: visible;
-                    opacity: 1;
-                }
-            }
-
-            &::-webkit-scrollbar-track {
-                //box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-                display: none;
-            }
-
-            &::-webkit-scrollbar-thumb {
-                background-color: $main;
-                border-radius: 20px;
-                visibility: hidden;
-                opacity: 0;
-                transition: .3s;
-
-            }
-
-            &:hover {
-                &::-webkit-scrollbar-thumb {
-                    visibility: visible;
-                    opacity: 1;
-                }
-            }
-        }
-
-    }
-
-
-
+  }
 }

@@ -1,5 +1,4 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { toast } from "react-toastify";
 
 // import API_URL from "../data/products.json";
 // const API_URL = "http://localhost:3005/products";

@@ -24,7 +24,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "../store/productsSlice";
 
 function App() {
-  const { isLoading } = useSelector((state) => state.products);
+  const { isLoading, error } = useSelector((state) => state.products);
   const [toggle, setToggle] = useState(false);
   const [showCart, setShowCart] = useState(false);
   const location = useLocation();
@@ -62,17 +62,23 @@ function App() {
                 showCart={showCart}
               />
               <main className={`main-area ${toggle ? "show" : ""}`}>
-                <div className="content">
-                  <PageHeading name="category">
-                    <CatsSlides />
-                  </PageHeading>
+                {!error ? (
+                  <React.Fragment>
+                    <div className="content">
+                      <PageHeading name="category">
+                        <CatsSlides />
+                      </PageHeading>
 
-                  {/* page__content */}
-                  <div className="page__content bg-secondary ">
-                    <Router location={location} />
-                  </div>
-                </div>
-                <CartWidget showCart={showCart} />
+                      {/* page__content */}
+                      <div className="page__content bg-secondary ">
+                        <Router location={location} />
+                      </div>
+                    </div>
+                    <CartWidget showCart={showCart} />
+                  </React.Fragment>
+                ) : (
+                  <div>erorr</div>
+                )}
               </main>
 
               {/* Main Modal

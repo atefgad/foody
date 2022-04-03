@@ -115,6 +115,15 @@ function CartWidget({ showCart }) {
             <hr />
             {/* Payments Widget */}
             <PaymentsWidget />
+
+            <div className="text-center">
+              <button
+                type="button"
+                className="btn btn-lg btn-primary w-100 rounded-1  position-relative"
+              >
+                place Order
+              </button>
+            </div>
           </div>
         </React.Fragment>
       ) : (

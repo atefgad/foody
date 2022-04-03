@@ -27,10 +27,10 @@ function Page404() {
               It seems we can’t find the page you are looking for.
             </p>
             <Link
-              className="btn btn-lg btn-primary fw-bold text-capitalize rounded-0 me-3"
+              className="btn btn-lg btn-primary fw-bold text-capitalize rounded shadow-2 me-3"
               to="/"
             >
-              Back to homepage
+              Back to Menu
             </Link>
           </div>
         </div>

@@ -14,7 +14,7 @@ function PaymentsWidget() {
       {/* Payment Option */}
 
       {paymentItems.map((payment, index) => (
-        <div className="col-md-4" key={index}>
+        <div className="col-4" key={index}>
           <a href="#!">
             <div className="d-flex align-items-center justify-content-center flex-column">
               <div className="payment__icon border border-2 rounded-2">

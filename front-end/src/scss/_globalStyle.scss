@@ -217,6 +217,7 @@ input[type="number"] {
 [tooltip] {
   position: relative;
   cursor: pointer;
+  z-index: 99;
 }
 
 [tooltip]:hover::before {

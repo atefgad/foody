@@ -16,7 +16,7 @@ function ProductCard({ data }) {
   const dispatch = useDispatch();
   // const { products } = useSelector((state) => state.products);
 
-  const [size, setSize] = useState("s");
+  const [size, setSize] = useState("");
   const [isError, setIsError] = useState(false);
 
   // Update Price By Size

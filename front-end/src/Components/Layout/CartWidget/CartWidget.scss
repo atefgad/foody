@@ -34,7 +34,7 @@
     overflow-x: hidden;
     overflow-y: scroll;
     min-height: 200px;
-    max-height: 300px;
+    max-height: 250px;
     scroll-behavior: smooth;
     transition: 0.3s;
 
@@ -58,17 +58,22 @@
   .widget__item {
     user-select: none;
     .widget__item__img {
-      width: 70px;
-      height: 70px;
+      width: 65px;
+      height: 65px;
 
       img {
         width: 100%;
       }
     }
+    .widget__item__heading {
+      h6 {
+        font-size: 15px;
+      }
+    }
   }
 
   .payment__icon {
-    height: 80px;
+    height: 70px;
     width: 80px;
     display: flex;
     align-items: center;

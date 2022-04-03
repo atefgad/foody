@@ -71,9 +71,15 @@ export default function Header({ toggle, setToggle, showCart, setShowCart }) {
               {cartItems.length}
             </span>
             <IoFastFoodOutline className="fs-1" />
-            <span className=" fs-6 ms-1">
-              {showCart ? <IoClose className="fs-1" /> : "Order"}
-            </span>
+            <div className="position-relative">
+              {showCart ? (
+                <span className="fs-3 d-lg-none" tooltip="close">
+                  <IoClose />
+                </span>
+              ) : (
+                <span className="fs-6 ms-1">InOrder</span>
+              )}
+            </div>
           </button>
         </div>
         {/* Right Box-icon:END */}

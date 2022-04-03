@@ -4,18 +4,15 @@ import { AnimatePresence, motion } from "framer-motion";
 
 //import Icons
 import {
-  IoHomeOutline,
   IoBagCheckOutline,
   IoWalletOutline,
   IoRestaurantOutline,
   IoSettingsOutline,
   IoCashOutline,
-  IoPricetagsOutline,
 } from "react-icons/io5";
 import { AiOutlineHistory } from "react-icons/ai";
 const menuListItems = [
   // { name: "home", path: "/", icon: <IoHomeOutline /> },
-
   {
     name: "order",
     path: "/order",
@@ -46,11 +43,6 @@ const menuListItems = [
     name: "settings",
     path: "/settings",
     icon: <IoSettingsOutline />,
-  },
-  {
-    name: "promos",
-    path: "/promos",
-    icon: <IoPricetagsOutline />,
   },
 ];
 
