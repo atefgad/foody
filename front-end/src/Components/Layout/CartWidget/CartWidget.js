@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import PaymentsWidget from "./PaymentsWidget";
 import "./CartWidget.scss";
 import CartWidgetItem from "./CartWidgetItem";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import NoCartItems from "../../NoCartItems";
 import { motion, AnimatePresence } from "framer-motion";
+import { openModal } from "../../../store/modalSlice";
+import { addNewOrder } from "../../../store/ordersSlice";
+import { clearCart } from "../../../store/cartSlice";
 
 const getTodayDate = () => {
   var theDate = new Date();
@@ -41,17 +44,42 @@ const getTodayDate = () => {
 
 function CartWidget({ showCart }) {
   const { cartItems, cartTotalAmount } = useSelector((state) => state.cart);
+  const [payment, setPayment] = useState("");
+  const dispatch = useDispatch();
 
   const taxPrice = (totalPrice, percentage) => {
-    return totalPrice * (percentage / 100);
+    const tPrice = totalPrice * (percentage / 100);
+    return tPrice.toFixed(2);
   };
   const totalPrice = (totalPrice, percentage) => {
-    return totalPrice * (percentage / 100) + totalPrice;
+    const tPeice = totalPrice * (percentage / 100) + totalPrice;
+    return tPeice.toFixed(2);
+  };
+
+  const subTotal = cartTotalAmount.toFixed(2);
+
+  const handleSubmitOrder = () => {
+    const orderDate = {
+      orderItems: [...cartItems],
+      paymentStatus: {
+        name: payment,
+        status: "success",
+      },
+      orderStatus: "",
+      subTotal,
+      taxs: taxPrice(cartTotalAmount, 10),
+      totalPrice: totalPrice(cartTotalAmount, 10),
+    };
+
+    dispatch(addNewOrder(orderDate));
+
+    setTimeout(() => {
+      dispatch(openModal("OrderBill"));
+      dispatch(clearCart());
+    }, 1000);
   };
   return (
-    <div
-      className={`cartWidget h-100 rounded-3 me-lg-3 ${showCart ? "show" : ""}`}
-    >
+    <div className={`cartWidget rounded-3 me-lg-3 ${showCart ? "show" : ""}`}>
       {cartItems.length > 0 ? (
         <React.Fragment>
           {/* Widget Header */}
@@ -91,35 +119,35 @@ function CartWidget({ showCart }) {
             <div className="cart__total mt-4">
               <div className="d-flex justify-content-between mb-1">
                 <span className="h6 text-gray-600 mb-0">Sub total</span>
-                <span className="fw-bold text-dark">
-                  ${cartTotalAmount.toFixed(2)}
-                </span>
+                <span className="fw-bold text-dark">${subTotal}</span>
               </div>
               <div className="d-flex justify-content-between mb-1">
                 <span className="h6 text-gray-600 mb-0">
                   Tax 10% (VAT Included)
                 </span>
                 <span className="fw-bold text-dark">
-                  ${taxPrice(cartTotalAmount, 10).toFixed(2)}
+                  ${taxPrice(cartTotalAmount, 10)}
                 </span>
               </div>
               <hr />
               <div className="d-flex justify-content-between mb-1">
                 <span className="h6 text-primary fw-bold mb-0">Total</span>
                 <span className="fw-bold text-success">
-                  ${totalPrice(cartTotalAmount, 10).toFixed(2)}
+                  ${totalPrice(cartTotalAmount, 10)}
                 </span>
               </div>
             </div>
 
             <hr />
             {/* Payments Widget */}
-            <PaymentsWidget />
+            <PaymentsWidget payment={payment} setPayment={setPayment} />
 
             <div className="text-center">
               <button
                 type="button"
                 className="btn btn-lg btn-primary w-100 rounded-1  position-relative"
+                disabled={payment === ""}
+                onClick={handleSubmitOrder}
               >
                 place Order
               </button>

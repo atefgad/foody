@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { closeModal } from "../../store/modalSlice";
-import { ModalUi, Login, Register, AddPaymentCard } from "../index";
+import { ModalUi, OrderBill } from "../index";
 
 function Modal() {
   const dispatch = useDispatch();
@@ -11,11 +11,12 @@ function Modal() {
     dispatch(closeModal());
   };
 
-  const componentsNames = { Login, Register, AddPaymentCard };
+  const componentsNames = { OrderBill };
   let renderComponent;
 
   if (componentName) {
-    const SelectedComponent = componentsNames[componentName];
+    const SelectedComponent =
+      componentsNames[componentName] || componentsNames[0];
     if (SelectedComponent) {
       renderComponent = <SelectedComponent />;
     }

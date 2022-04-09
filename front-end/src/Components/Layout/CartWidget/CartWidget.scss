@@ -7,7 +7,7 @@
   background-color: #fff;
   padding-bottom: 15px;
   transition: 0.3s;
-  height: 100%;
+  height: 100vh;
   margin-top: 2rem;
 
   // Large devices (desktops, 992px and up)
@@ -72,12 +72,46 @@
     }
   }
 
-  .payment__icon {
-    height: 70px;
-    width: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem;
+  .payment__Item {
+    cursor: pointer;
+    &:hover {
+      & .payment__icon {
+        border-color: $main !important;
+        color: $main !important;
+      }
+    }
+
+    &.active {
+      .payment__icon {
+        background-color: $main !important;
+        border-color: $main !important;
+        color: white !important;
+      }
+    }
+    .payment__icon {
+      height: 70px;
+      width: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      transition: 0.3s;
+      position: relative;
+      .check__box {
+        display: block;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        z-index: 2;
+      }
+      .check__input {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: 33;
+        cursor: pointer;
+        opacity: 0;
+      }
+    }
   }
 }

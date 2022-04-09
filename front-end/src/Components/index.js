@@ -3,8 +3,10 @@ import Sidebar from "./Layout/Sidebar/Sidebar";
 import CartWidget from "./Layout/CartWidget/CartWidget";
 
 // Modals
-// import Modal from "./util/Modal";
-// import ModalUi from "./Layout/Modal/ModalUi";
+import Modal from "./util/Modal";
+import ModalUi from "./Layout/Modal/ModalUi";
+
+import OrderBill from "./OrderBill/OrderBill";
 
 //Register form
 import Login from "./Forms/Login";
@@ -34,8 +36,9 @@ export {
   CatListItem,
   CatsSlides,
   //Modals
-  // Modal,
-  // ModalUi,
+  Modal,
+  ModalUi,
+  OrderBill,
   //Register form
   Login,
   Register,

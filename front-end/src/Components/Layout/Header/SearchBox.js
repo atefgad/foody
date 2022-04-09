@@ -19,7 +19,7 @@ function SearchBox({ className }) {
         <input
           className="form-control  navbar-search-field p-1"
           type="text"
-          placeholder="Search In Categories or Menu.."
+          placeholder="Search In Menu..."
           value={term}
           onChange={(e) => setTerm(e.target.value)}
         />

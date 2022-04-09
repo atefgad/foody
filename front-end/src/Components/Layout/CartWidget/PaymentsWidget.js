@@ -7,22 +7,32 @@ const paymentItems = [
   { name: "Debit Card", icon: <BsFillCreditCardFill /> },
   { name: "E-Wallet", icon: <BiBarcodeReader /> },
 ];
-function PaymentsWidget() {
+function PaymentsWidget({ payment, setPayment }) {
   return (
     <div className="row">
-      <h6 className="text-dark">Payment Method</h6>
+      <h6 className="text-dark">Choose payment Method</h6>
       {/* Payment Option */}
 
-      {paymentItems.map((payment, index) => (
+      {paymentItems.map((item, index) => (
         <div className="col-4" key={index}>
-          <a href="#!">
+          <div className={`payment__Item ${item.name === payment && "active"}`}>
             <div className="d-flex align-items-center justify-content-center flex-column">
               <div className="payment__icon border border-2 rounded-2">
-                {payment.icon}
+                <input
+                  className="check__input"
+                  type="radio"
+                  id={`${item.name}_${index}`}
+                  value={item.name}
+                  checked={item.name === payment}
+                  onChange={(e) => setPayment(e.target.value)}
+                />
+                <lable className="check__box" htmlFor={`${item.name}_${index}`}>
+                  {item.icon}
+                </lable>
               </div>
-              <h6 className="mt-2 text-muted">{payment.name}</h6>
+              <h6 className="mt-2 text-muted">{item.name}</h6>
             </div>
-          </a>
+          </div>
         </div>
       ))}
     </div>

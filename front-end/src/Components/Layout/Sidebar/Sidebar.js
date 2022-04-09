@@ -11,6 +11,7 @@ function Sidebar({ toggle, closeSidebar }) {
     <aside className={`sidebar ${toggle ? "show" : ""}`}>
       <button
         className="exit__btn btn btn-link"
+        tooltip="hide"
         onClick={() => closeSidebar(false)}
       >
         <IoClose className="fs-3" />

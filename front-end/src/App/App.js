@@ -13,6 +13,7 @@ import {
   ScrollToTop,
   PageHeading,
   CatsSlides,
+  Modal,
 } from "../Components";
 import Router from "./Router";
 
@@ -53,6 +54,8 @@ function App() {
               draggable
               pauseOnHover
             />
+            {/* Main Modal */}
+            <Modal />
             <div className="app__container bg-secondary">
               <Sidebar toggle={toggle} closeSidebar={setToggle} />
               <Header
@@ -65,7 +68,7 @@ function App() {
                 {!error ? (
                   <React.Fragment>
                     <div className="content">
-                      <PageHeading name="category">
+                      <PageHeading>
                         <CatsSlides />
                       </PageHeading>
 

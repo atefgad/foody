@@ -1,33 +1,33 @@
 @import "../scss/colors";
 
 #App {
-  @media (min-width: 1755px) {
+  @media (min-width: 1610px) {
     /** top img **/
     &::before {
       content: "";
       position: absolute;
-      top: 30px;
-      left: 20%;
+      top: -1px;
+      left: 22%;
       width: 115px;
       height: 100px;
       background-image: url(../Assets/images/pizza1.png);
       background-repeat: no-repeat;
-      z-index: 9999;
+      filter: drop-shadow(-3px 7px 1px rgba(248, 168, 8, 0.614));
+      z-index: 99;
     }
-
-    /** bottom img **/
-    // &::after {
-    //     content: "";
-    //     position: absolute;
-    //     bottom: 0;
-    //     left: 100px;
-    //     width: 100px;
-    //     height: 150px;
-    //     background-image: url(../Assets/images/str.png);
-    //     background-repeat: no-repeat;
-    //     z-index: 999999;
-    // }
   }
+  /** bottom img **/
+  // &::after {
+  //     content: "";
+  //     position: absolute;
+  //     bottom: 0;
+  //     left: 100px;
+  //     width: 100px;
+  //     height: 150px;
+  //     background-image: url(../Assets/images/str.png);
+  //     background-repeat: no-repeat;
+  //     z-index: 999999;
+  // }
 }
 
 // Small devices (landscape phones, 576px and up)

@@ -23,6 +23,7 @@ export default function Header({ toggle, setToggle, showCart, setShowCart }) {
       <div className="container-fluid justify-content-lg-end">
         <Button
           className="navbar-toggler btn__toggle border-0 text-black"
+          tooltip="show sidebar"
           onClick={() => setToggle(!toggle)}
         >
           <IoMenu style={{ fontSize: "1.8rem" }} />
@@ -77,7 +78,7 @@ export default function Header({ toggle, setToggle, showCart, setShowCart }) {
                   <IoClose />
                 </span>
               ) : (
-                <span className="fs-6 ms-1">InOrder</span>
+                <span className="fs-6 ms-1 d-none d-lg-block">InOrder</span>
               )}
             </div>
           </button>
