@@ -20,7 +20,7 @@ const menuListItems = [
   },
   {
     name: "menu",
-    path: "/",
+    path: "/menu",
     icon: <IoRestaurantOutline />,
   },
   {

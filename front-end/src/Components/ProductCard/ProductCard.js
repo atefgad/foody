@@ -10,6 +10,7 @@ import { Page404 } from "../../Pages";
 import { addToCart } from "../../store/cartSlice";
 import Api from "../../api";
 import SizeCheckInput from "./SizeCheckInput";
+import { IoAddCircle } from "react-icons/io5";
 
 function ProductCard({ data }) {
   const { id, title, image, price, newPrice } = data;
@@ -48,7 +49,7 @@ function ProductCard({ data }) {
       toast.success("Successfully Added!");
     } else {
       setIsError(true);
-      toast.error("Select a Size");
+      // toast.error("Select a Size");
     }
   };
 
@@ -84,14 +85,16 @@ function ProductCard({ data }) {
           <span className="fs-6 fw-bold">${price}</span>
         )}
       </div>
-      {/* Size[radio box] */}
-      {isError && isError ? (
-        <div className="text-danger mt-1 ps-1 text-start">Select a size</div>
-      ) : (
-        ""
+
+      {/* Size[radio box] 
+      {isError && (
+        <div className="text-danger mt-1 ps-1 text-start">Select size</div>
       )}
+      */}
+
       <div className="mt-2 d-flex align-items-center justify-content-between">
         <div className="d-flex align-items-center justify-content-between">
+          <span className="me-1">Size: </span>
           {["s", "m", "l"].map((sizeItem, index) => (
             <SizeCheckInput
               key={`${id}"-"${index}`}
@@ -104,10 +107,11 @@ function ProductCard({ data }) {
           ))}
         </div>
         <button
-          className="btn btn-outline-primary px-5 py-2"
+          className="card__btn btn btn-link   p-0"
           onClick={() => handleAddToCart(data)}
+          tooltip="Add"
         >
-          Add
+          <IoAddCircle className="card__btn__icon fw-bold" />
         </button>
       </div>
     </div>

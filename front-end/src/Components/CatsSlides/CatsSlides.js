@@ -14,32 +14,31 @@ import { IoPizzaOutline, IoFastFoodSharp } from "react-icons/io5";
 import { FaIceCream } from "react-icons/fa";
 import { GiHamburger } from "react-icons/gi";
 import { BiDrink } from "react-icons/bi";
-import { SiBuymeacoffee } from "react-icons/si";
 
 const categories = [
   {
     name: "all items",
-    path: "/",
+    path: "/menu/all",
     icon: <IoFastFoodSharp className="fs-2 fw-bold" />,
   },
   {
     name: "pizza",
-    path: "/category/pizza",
+    path: "menu/pizza",
     icon: <IoPizzaOutline className="fs-2 fw-bold" />,
   },
   {
     name: "burger",
-    path: "/category/burger",
+    path: "menu/burger",
     icon: <GiHamburger className="fs-2 fw-bold" />,
   },
   {
     name: "drinks",
-    path: "/category/drinks",
+    path: "menu/drinks",
     icon: <BiDrink className="fs-2 fw-bold" />,
   },
   {
     name: "desserts",
-    path: "/category/dessert",
+    path: "menu/dessert",
     icon: <FaIceCream className="fs-2 fw-bold" />,
   },
 ];

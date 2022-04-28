@@ -3,7 +3,13 @@ import React, { useEffect, useState } from "react";
 import { AnimatePresence } from "framer-motion";
 
 // import route components
-import { useLocation } from "react-router-dom";
+import {
+  Outlet,
+  Route,
+  Routes,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
 
 import {
   Header,
@@ -23,12 +29,17 @@ import "react-toastify/dist/ReactToastify.css";
 import "./App.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "../store/productsSlice";
+import AppContainer from "./AppContainer";
+import { Auth, Category, Home, Menu, Page404, Settings } from "../Pages";
 
 function App() {
-  const { isLoading, error } = useSelector((state) => state.products);
-  const [toggle, setToggle] = useState(false);
-  const [showCart, setShowCart] = useState(false);
+  const { isLoading } = useSelector((state) => state.products);
+  const { isLoggedIn } = useSelector((state) => state.auth);
   const location = useLocation();
+
+  let navigate = useNavigate();
+
+  const [toggle, setToggle] = useState(false);
 
   const dispach = useDispatch();
 
@@ -43,55 +54,32 @@ function App() {
       {isLoading ? (
         <Loading />
       ) : (
-        <AnimatePresence exitBeforeEnter initial={false}>
-          <ScrollToTop>
-            <ToastContainer
-              position="top-left"
-              autoClose={5000}
-              hideProgressBar={true}
-              closeOnClick
-              pauseOnFocusLoss
-              draggable
-              pauseOnHover
-            />
-            {/* Main Modal */}
-            <Modal />
-            <div className="app__container bg-secondary">
-              <Sidebar toggle={toggle} closeSidebar={setToggle} />
-              <Header
-                toggle={toggle}
-                setToggle={setToggle}
-                setShowCart={setShowCart}
-                showCart={showCart}
-              />
-              <main className={`main-area ${toggle ? "show" : ""}`}>
-                {!error ? (
-                  <React.Fragment>
-                    <div className="content">
-                      <PageHeading>
-                        <CatsSlides />
-                      </PageHeading>
+        <div className="App__Wrapper">
+          <AnimatePresence exitBeforeEnter initial={false}>
+            <ScrollToTop>
+              <Routes key={location.pathname} location={location}>
+                <Route path="/*" element={<Home isLoggedIn={isLoggedIn} />} />
+                <Route
+                  path="/auth"
+                  element={<Auth isLoggedIn={isLoggedIn} />}
+                />
+                <Route path="*" element={<Page404 />} />
+              </Routes>
+            </ScrollToTop>
+          </AnimatePresence>
 
-                      {/* page__content */}
-                      <div className="page__content bg-secondary ">
-                        <Router location={location} />
-                      </div>
-                    </div>
-                    <CartWidget showCart={showCart} />
-                  </React.Fragment>
-                ) : (
-                  <div>erorr</div>
-                )}
-              </main>
-
-              {/* Main Modal
-            
-            <Modal />
-            
-            */}
-            </div>
-          </ScrollToTop>
-        </AnimatePresence>
+          <ToastContainer
+            position="top-left"
+            autoClose={5000}
+            hideProgressBar={true}
+            closeOnClick
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+          />
+          {/* Main Modal */}
+          <Modal />
+        </div>
       )}
     </React.Fragment>
   );

@@ -6,9 +6,12 @@ export const category = {
 };
 
 const Api = {
-  getProductsByCat: (type, params) => {
-    const filtered = params.filter((product) => product.category === type);
-    return filtered;
+  getProducts: (type, data) => {
+    if (type === "all") {
+      return data;
+    } else {
+      return data.filter((product) => product.category === type);
+    }
   },
   imagesURL: () => "https://api.atef-gad.com/products",
 };

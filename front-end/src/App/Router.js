@@ -3,15 +3,15 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 
 // import Pages Components
-import { Menu, Shop, Page404, Category } from "../Pages";
+import { Auth, Menu, Page404, Category } from "../Pages";
 
 function Router({ location }) {
   return (
     <React.Fragment>
       <Routes key={location.pathname} location={location}>
-        <Route path="/" element={<Menu />} />
-        <Route path="category/:category" element={<Category />} />
-        <Route path="shop" element={<Shop />} />
+        <Route path="menu" element={<Menu />}>
+          <Route path=":menu" element={<Category />} />
+        </Route>
         <Route path="*" element={<Page404 />} />
       </Routes>
     </React.Fragment>

@@ -15,7 +15,7 @@ function Category() {
     <Animated>
       <div className="container">
         <div className="row">
-          {Api.getProductsByCat(category, data).map((productItem, i) => (
+          {Api.getProducts(category, data).map((productItem, i) => (
             <motion.div
               className="col-lg-4 col-md-6 col-sm-12"
               key={productItem.id}

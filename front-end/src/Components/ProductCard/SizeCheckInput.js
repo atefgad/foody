@@ -14,10 +14,12 @@ function SizeCheckInput({ id, sizeItem, size, setSize, isError }) {
       />
       <label
         className={`btn btn-secondary text-muted py-2 px-2 ${
-          isError ? " border-primary" : ""
+          isError && " border-3 border-primary"
         }`}
         htmlFor={`#${sizeItem}-${id}`}
-        tooltip={sizeItem === "m" ? "+3" : "" || sizeItem === "l" ? "+5" : ""}
+        tooltip={
+          sizeItem === "m" ? "+ $3" : "" || sizeItem === "l" ? "+ $5" : ""
+        }
       >
         {sizeItem.toUpperCase()}
       </label>

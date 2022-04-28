@@ -1,6 +1,11 @@
 @import "../scss/colors";
 
-#App {
+.App__Wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+
   @media (min-width: 1610px) {
     /** top img **/
     &::before {
