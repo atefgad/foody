@@ -12,10 +12,11 @@ function Auth({ isLoggedIn }) {
   return (
     <div className="auth__container">
       <div className="form-container">
-        {/* Login Form */}
-        <Login active={active} setActive={setActive} />
         {/* Register Form */}
         <Register active={active} setActive={setActive} />
+
+        {/* Login Form */}
+        <Login active={active} setActive={setActive} />
       </div>
     </div>
   );

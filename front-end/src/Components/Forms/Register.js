@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 
 import { register as newRegister } from "../../store/authSlice";
 
@@ -9,14 +10,17 @@ import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
 function Register({ active, setActive }) {
   const [showPassword, setShowPassword] = useState(false);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => dispatch(newRegister(data));
-  console.log(errors);
+  const onSubmit = (data) => {
+    dispatch(newRegister(data));
+    navigate("/menu");
+  };
 
   return (
     <div className={`signup ${!active && "slide-up"}`}>
@@ -25,16 +29,32 @@ function Register({ active, setActive }) {
           <span>or</span>Sign up
         </h2>
         <div className="form-holder">
-          <input
-            type="text"
-            className="input"
-            placeholder="Name"
-            {...register("name", {
-              required: true,
-              min: 3,
-              maxLength: 18,
-            })}
-          />
+          <div className="row">
+            <div className="col-6">
+              <input
+                type="text"
+                className="input"
+                placeholder="First Name"
+                {...register("firstName", {
+                  required: true,
+                  min: 3,
+                  maxLength: 10,
+                })}
+              />
+            </div>
+            <div className="col-6">
+              <input
+                type="text"
+                className="input"
+                placeholder="Last Name"
+                {...register("lastName", {
+                  required: true,
+                  min: 3,
+                  maxLength: 10,
+                })}
+              />
+            </div>
+          </div>
           <input
             type="email"
             className="input"

@@ -29,8 +29,7 @@ import "react-toastify/dist/ReactToastify.css";
 import "./App.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "../store/productsSlice";
-import AppContainer from "./AppContainer";
-import { Auth, Category, Home, Menu, Page404, Settings } from "../Pages";
+import { Auth, Home, Page404 } from "../Pages";
 
 function App() {
   const { isLoading } = useSelector((state) => state.products);
@@ -39,15 +38,11 @@ function App() {
 
   let navigate = useNavigate();
 
-  const [toggle, setToggle] = useState(false);
-
   const dispach = useDispatch();
 
   useEffect(() => {
     dispach(getProducts());
   }, [dispach]);
-
-  // <Route path="product/:productId" element={<Product />} />
 
   return (
     <React.Fragment>
@@ -58,7 +53,12 @@ function App() {
           <AnimatePresence exitBeforeEnter initial={false}>
             <ScrollToTop>
               <Routes key={location.pathname} location={location}>
-                <Route path="/*" element={<Home isLoggedIn={isLoggedIn} />} />
+                <Route
+                  path="/*"
+                  element={
+                    isLoggedIn ? <Home /> : <Auth isLoggedIn={isLoggedIn} />
+                  }
+                />
                 <Route
                   path="/auth"
                   element={<Auth isLoggedIn={isLoggedIn} />}

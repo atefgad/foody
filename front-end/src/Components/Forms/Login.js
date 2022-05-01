@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+import { IoMdAlert } from "react-icons/io";
 import { useDispatch } from "react-redux";
 
 import { useForm } from "react-hook-form";
@@ -40,8 +41,17 @@ function Login({ active, setActive }) {
                 maxLength: 18,
               })}
             />
-            {errors.password && "password is required"}
           </div>
+          {errors.password && (
+            <div className="text-danger fs-6 mt-1">
+              <IoMdAlert className="me-1" /> password is required
+            </div>
+          )}
+          {errors.email && (
+            <div className="text-danger fs-6">
+              <IoMdAlert className="me-1" /> Email is required
+            </div>
+          )}
           <button type="submit" className="submit-btn">
             Log in
           </button>

@@ -1,6 +1,7 @@
 @import "../../scss/colors";
 
 .product__card {
+  user-select: none;
   .product__size {
     position: relative;
     display: inline-flex;
