@@ -25,7 +25,7 @@ function Avatar({ className }) {
 
       {isLoggedIn && (
         <React.Fragment>
-          <div className="text-lg-center mt-3">
+          <div className="text-center mt-3">
             <h6 className="avatar__name m-0">
               {name.firstname && name.lastname
                 ? `${name.firstname} ${name.lastname}`

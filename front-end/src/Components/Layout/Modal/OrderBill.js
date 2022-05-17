@@ -1,5 +1,5 @@
 import React from "react";
-import "./OrderBill.scss";
+import "./Styles.scss";
 import { IoCheckmarkCircleOutline } from "react-icons/io5";
 
 function OrderBill() {

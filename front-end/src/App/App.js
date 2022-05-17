@@ -52,11 +52,15 @@ function App() {
         <div className="App__Wrapper">
           <AnimatePresence exitBeforeEnter initial={false}>
             <ScrollToTop>
-              <Routes key={location.pathname} location={location}>
+              <Routes>
                 <Route
                   path="/*"
                   element={
-                    isLoggedIn ? <Home /> : <Auth isLoggedIn={isLoggedIn} />
+                    isLoggedIn ? (
+                      <Home isLoggedIn={isLoggedIn} />
+                    ) : (
+                      <Auth isLoggedIn={isLoggedIn} />
+                    )
                   }
                 />
                 <Route

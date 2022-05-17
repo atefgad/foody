@@ -1,25 +1,39 @@
 .modal-content {
+  border-radius: 0 !important;
 
-    border-radius: 0 !important;
+  .modal-header {
+    border-bottom: none;
 
-    .modal-header {
-        border-bottom: none;
+    .btn-close {
+      margin: 0;
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      z-index: 11;
 
-
-        .btn-close {
-            margin: 0;
-            position: absolute;
-            top: 8px;
-            right: 8px;
-            z-index: 11;
-
-            &:focus {
-                box-shadow: unset !important;
-            }
-        }
+      &:focus {
+        box-shadow: unset !important;
+      }
     }
+  }
 
-    .modal-body {
-        // padding: 0;
-    }
+  .modal-body {
+    // padding: 0;
+  }
+}
+.add_new_item {
+  position: relative;
+  .modal__title {
+    position: absolute;
+    top: -50px;
+  }
+}
+.order__bill {
+  .icon {
+    font-size: 5rem;
+  }
+  h3 {
+    font-size: 1.5rem;
+    color: #413d3dca;
+  }
 }

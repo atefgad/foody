@@ -13,10 +13,12 @@ import {
 } from "react-icons/io5";
 // import MenuList from "../../MenuList/MenuList";
 import SearchBox from "./SearchBox";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { openModal } from "../../../store/modalSlice";
 
 export default function Header({ toggle, setToggle, showCart, setShowCart }) {
   const { cartItems } = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
   return (
     <Navbar bg="light" expand="lg" className="border-bottom">
       {/* container */}
@@ -45,7 +47,10 @@ export default function Header({ toggle, setToggle, showCart, setShowCart }) {
             </button>
           </div>
           <div className="navbar-tool me-2 d-none d-lg-block">
-            <button className="btn btn-primary rounded-1 w-100">
+            <button
+              className="btn btn-primary rounded-1 w-100"
+              onClick={() => dispatch(openModal("AddNewItem"))}
+            >
               <IoAddSharp className="fw-bold me-1" />
               Add New Item
             </button>

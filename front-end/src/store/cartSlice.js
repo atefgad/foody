@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { toast } from "react-toastify";
 
 // Get cartItems from the localStorage
 const cartItems = JSON.parse(localStorage.getItem("cart"));
@@ -39,8 +40,11 @@ const cartSlice = createSlice({
           };
           state.cartItems.push(productData);
           localStorage.setItem("cart", JSON.stringify(state.cartItems));
+          toast.success(
+            `${action.payload.title.substr(0, 25)}... has been added to Order`
+          );
         } else {
-          alert("This product is already in the cart!");
+          toast.error("This product is already in the Order!");
           return;
         }
       } else {

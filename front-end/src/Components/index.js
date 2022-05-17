@@ -6,7 +6,8 @@ import CartWidget from "./Layout/CartWidget/CartWidget";
 import Modal from "./util/Modal";
 import ModalUi from "./Layout/Modal/ModalUi";
 
-import OrderBill from "./OrderBill/OrderBill";
+import AddNewItem from "./Layout/Modal/AddNewItem";
+import OrderBill from "./Layout/Modal/OrderBill";
 
 //Register form
 import Login from "./Forms/Login";
@@ -38,6 +39,7 @@ export {
   //Modals
   Modal,
   ModalUi,
+  AddNewItem,
   OrderBill,
   //Register form
   Login,

@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { closeModal } from "../../store/modalSlice";
-import { ModalUi, OrderBill } from "../index";
+import { ModalUi, OrderBill, AddNewItem } from "../index";
 
 function Modal() {
   const dispatch = useDispatch();
@@ -11,7 +11,7 @@ function Modal() {
     dispatch(closeModal());
   };
 
-  const componentsNames = { OrderBill };
+  const componentsNames = { OrderBill, AddNewItem };
   let renderComponent;
 
   if (componentName) {

@@ -5,17 +5,21 @@ import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
 
 import { login } from "../../store/authSlice";
+import { useNavigate } from "react-router-dom";
 
 function Login({ active, setActive }) {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => dispatch(login(data));
-  console.log(errors);
+  const onSubmit = (data) => {
+    dispatch(login(data));
+    navigate("/menu/all");
+  };
 
   return (
     <div className={`login ${active && "slide-up"}`}>

@@ -5,7 +5,11 @@ import { useNavigate } from "react-router-dom";
 
 import { register as newRegister } from "../../store/authSlice";
 
-import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
+import {
+  IoEyeOutline,
+  IoEyeOffOutline,
+  IoAlertCircleOutline,
+} from "react-icons/io5";
 
 function Register({ active, setActive }) {
   const [showPassword, setShowPassword] = useState(false);
@@ -19,7 +23,7 @@ function Register({ active, setActive }) {
   } = useForm();
   const onSubmit = (data) => {
     dispatch(newRegister(data));
-    navigate("/menu");
+    navigate("/menu/all");
   };
 
   return (
@@ -81,6 +85,28 @@ function Register({ active, setActive }) {
             </a>
           </div>
         </div>
+        {Object.keys(errors).length > 0 && (
+          <div className="alert alert-warning  text-danger fs-6 p-1 mt-2">
+            {(errors.firstName || errors.lastName) && (
+              <div className="">
+                <IoAlertCircleOutline className="me-1" />
+                Name is required
+              </div>
+            )}
+            {errors.email && (
+              <div className="">
+                <IoAlertCircleOutline className="me-1" />
+                Email is required
+              </div>
+            )}
+            {errors.password && (
+              <div className="">
+                <IoAlertCircleOutline className="me-1" />
+                password is required
+              </div>
+            )}
+          </div>
+        )}
         <button className="submit-btn">Sign up</button>
       </form>
     </div>

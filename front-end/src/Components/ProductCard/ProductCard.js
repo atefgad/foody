@@ -46,7 +46,6 @@ function ProductCard({ data }) {
       setSize("");
       setIsError(false);
       // setTimeout(() => {}, 3000);
-      toast.success("Successfully Added!");
     } else {
       setIsError(true);
       // toast.error("Select a Size");
@@ -67,31 +66,10 @@ function ProductCard({ data }) {
       </div>
       <div className="text-center">
         <h5 className="h6">{title}</h5>
-        {/*
-        {newPrice !== null ? (
-          <React.Fragment>
-            <del className="fs-6 me-2">${price}</del>
-            <span className="fs-6 fw-bold">${newPrice}</span>
-          </React.Fragment>
-        ) : (
-          <span className="fs-6 fw-bold">${price}</span>
-        )}
-        */}
-        {updatedPrice !== undefined ? (
-          <React.Fragment>
-            <span className="fs-6 fw-bold">${updatedPrice.toFixed(2)}</span>
-          </React.Fragment>
-        ) : (
-          <span className="fs-6 fw-bold">${price}</span>
-        )}
+        <span className="fs-6 fw-bold">
+          ${updatedPrice !== undefined ? updatedPrice.toFixed(2) : price}
+        </span>
       </div>
-
-      {/* Size[radio box] 
-      {isError && (
-        <div className="text-danger mt-1 ps-1 text-start">Select size</div>
-      )}
-      */}
-
       <div className="mt-2 d-flex align-items-center justify-content-between">
         <div className="d-flex align-items-center justify-content-between">
           <span className="me-1">Size: </span>
