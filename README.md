@@ -1,6 +1,5 @@
-# Foody | POS System Web App For Restaurant
-Bootstrap v5 SASS 
-
+# Foody | POS System Web App
+  Reactjs Web App For Restaurant
   
 # Tools && Technicals
   [Html5 - Css3 - Sass - Bootstrap5 - Reactjs - Redux - Framer motion]
